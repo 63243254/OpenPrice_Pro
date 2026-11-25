@@ -172,24 +172,57 @@ function extractAppleIapList(html) {
   try {
     const json = JSON.parse(m[1]);
     const items = [];
+    const seenTitles = new Set();
     const walk = (node) => {
       if (!node || typeof node !== 'object') return;
       if (Array.isArray(node)) {
         for (const item of node) walk(item);
         return;
       }
-      if (node.$kind === 'Annotation' && Array.isArray(node.items)) {
+      // 1. 标准 Annotation 结构 (英文/西语/法文/德文等多语言)
+      const titleLower = (node.title || '').toLowerCase();
+      const isIapSection =
+        titleLower.includes('in-app') ||
+        titleLower.includes('compras dentro') ||
+        titleLower.includes('achats') ||
+        titleLower.includes('käufe') ||
+        titleLower.includes('内购') ||
+        titleLower.includes('アプリ内課金');
+
+      if (Array.isArray(node.items)) {
         const hasInAppBtn = node.items.some(
           (it) => it?.$kind === 'button' && it?.action?.origin === 'inapp'
         );
-        if (hasInAppBtn || node.title === 'In-App Purchases') {
+        if (hasInAppBtn || isIapSection) {
           for (const it of node.items) {
-            if (it?.$kind === 'textPair' && it.leadingText && it.trailingText) {
-              items.push({ title: it.leadingText.trim(), priceText: it.trailingText.trim() });
+            if (it.leadingText && it.trailingText) {
+              const k = `${it.leadingText}|${it.trailingText}`;
+              if (!seenTitles.has(k)) {
+                seenTitles.add(k);
+                items.push({ title: it.leadingText.trim(), priceText: it.trailingText.trim() });
+              }
             }
           }
         }
       }
+
+      // 2. 智利/拉美等地区的 shelfMapping.information.items 备用结构
+      if (node.shelfMapping?.information?.items && Array.isArray(node.shelfMapping.information.items)) {
+        for (const group of node.shelfMapping.information.items) {
+          if (Array.isArray(group.items)) {
+            for (const it of group.items) {
+              if (it.leadingText && it.trailingText) {
+                const k = `${it.leadingText}|${it.trailingText}`;
+                if (!seenTitles.has(k)) {
+                  seenTitles.add(k);
+                  items.push({ title: it.leadingText.trim(), priceText: it.trailingText.trim() });
+                }
+              }
+            }
+          }
+        }
+      }
+
       for (const v of Object.values(node)) walk(v);
     };
     walk(json);
@@ -213,16 +246,36 @@ function mostFrequent(nums) {
   return best;
 }
 
+const ISO_DEFAULT_CURRENCY = {
+  CL: 'CLP',
+  CO: 'COP',
+  MX: 'MXN',
+  BR: 'BRL',
+  PE: 'PEN',
+  UY: 'UYU',
+  CR: 'CRC',
+};
+
 function mapIapsToPlans(aiId, items, ldCurrency, isoUpper, rates) {
   const taxAtCheckout = TAX_EXCLUSIVE_STOREFRONTS.has(isoUpper);
   const parsed = items
-    .map((it) => ({
-      title: it.title,
-      lower: it.title.toLowerCase(),
-      priceText: it.priceText,
-      amount: parseLocalizedNumber(it.priceText),
-      currency: detectCurrency(it.priceText, ldCurrency),
-    }))
+    .map((it) => {
+      let cur = detectCurrency(it.priceText, ldCurrency);
+      const amt = parseLocalizedNumber(it.priceText);
+      // 拉美比索/本币国家（如智利 CLP / 哥伦比亚 COP / 墨西哥 MXN）常显示单一 $ 符号
+      if (cur === 'USD' && ISO_DEFAULT_CURRENCY[isoUpper] && amt !== null) {
+        if (isoUpper === 'CL' || isoUpper === 'CO' || amt > 550) {
+          cur = ISO_DEFAULT_CURRENCY[isoUpper];
+        }
+      }
+      return {
+        title: it.title,
+        lower: it.title.toLowerCase(),
+        priceText: it.priceText,
+        amount: amt,
+        currency: cur,
+      };
+    })
     .filter((x) => x.amount !== null);
 
   if (parsed.length === 0) return {};

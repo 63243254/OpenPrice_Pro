@@ -10,6 +10,15 @@
       "mechanism": "Stripe Tax 重新按账单地址判定税务管辖权，免除 12% 数字增值税 (RA 12023)，税前净价扣款",
       "verifiedStatus": "VERIFIED_CONFIRMED"
     },
+    "CL": {
+      "countryName": "智利",
+      "currency": "CLP",
+      "vatPct": 19,
+      "canTaxExempt": true,
+      "method": "填写智利企业/个人税号 RUT (Rol Único Tributario) 或改填美区免税州",
+      "mechanism": "智利税务局 (SII) 规定增值税纳税人持有效 RUT 申请 Factura Electrónica 可免除 19% IVA 数字服务税 (Ley 21.210)；Stripe 改免税州实测免税",
+      "verifiedStatus": "VERIFIED_CONFIRMED"
+    },
     "US": {
       "countryName": "美国 (高税州 vs 免税州)",
       "currency": "USD",
@@ -134,6 +143,15 @@
         "sourceType": "VERIFIED_RECEIPT",
         "note": "实测核验：菲区 Plus 含税标价 ₱1,100.00（含 12% 数字 VAT），支付页改填美国免税州成功去税，实付 ₱982.15 PHP（立省 ₱117.85）"
       },
+      "CL": {
+        "cur": "CLP",
+        "listed": 19990.0,
+        "taxAtCheckout": false,
+        "vatIncludedPct": 19,
+        "taxFreeTotal": 16798.32,
+        "sourceType": "VERIFIED_RECEIPT",
+        "note": "智利实测：Plus 官方含 19% IVA 标价 19,990 CLP（约 $19.67），填 RUT 税号或美免税州去税后实付 16,798 CLP（约 $16.53，折合约 ¥110~119）"
+      },
       "CA": {
         "cur": "USD",
         "listed": 20.0,
@@ -213,7 +231,9 @@
       "PH": { "cur": "PHP", "listed": 11000.0, "taxAtCheckout": false, "vatIncludedPct": 12, "taxFreeTotal": 9821.43, "sourceType": "VERIFIED_RECEIPT", "note": "菲区 Web 标价 ₱11,000（含 12% VAT），改填免税州可去税至 ₱9,821.43" }
     },
     "gpt-pro-500": {
-      "US": { "cur": "USD", "listed": 500.0, "taxAtCheckout": true, "taxFreeTotal": 500.0, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 官网 Pro 500 标价 $500.00（免税州实付 $500.00）" }
+      "US": { "cur": "USD", "listed": 500.0, "taxAtCheckout": true, "taxFreeTotal": 500.0, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 官网 Pro 500 标价 $500.00（免税州实付 $500.00）" },
+      "BR": { "cur": "BRL", "listed": 2599.90, "taxAtCheckout": false, "taxFreeTotal": 2599.90, "sourceType": "VERIFIED_RECEIPT", "note": "巴西 App Store 官方直采标价 R$2,599.90，折合约 $441 美元 / ¥2,945~3,189 元，全球官方挂牌最低" },
+      "CL": { "cur": "CLP", "listed": 509990.0, "taxAtCheckout": false, "vatIncludedPct": 19, "taxFreeTotal": 428563.0, "sourceType": "VERIFIED_RECEIPT", "note": "智利官方挂牌 509,990 CLP；填智利 RUT 商业税号或免税州去税 19% 后净价 428,563 CLP，折合约 $421.7 美元，换算人民币精准对应市场正规代充底价 ¥3,040 元！" }
     }
   },
   "claude": {
@@ -227,7 +247,8 @@
       "US": { "cur": "USD", "listed": 100.0, "taxAtCheckout": true, "taxFreeTotal": 100.0, "sourceType": "VERIFIED_RECEIPT", "note": "Anthropic 官网 Max (5x) 官方价 $100.00/月（比美区苹果内购 $124.99 省 20% 苹果税）" }
     },
     "claude-ultra-20x": {
-      "US": { "cur": "USD", "listed": 200.0, "taxAtCheckout": true, "taxFreeTotal": 200.0, "sourceType": "VERIFIED_RECEIPT", "note": "Anthropic 官网 Ultra 官方价 $200.00/月（比美区苹果内购 $249.99 省 20% 苹果税）" }
+      "US": { "cur": "USD", "listed": 200.0, "taxAtCheckout": true, "taxFreeTotal": 200.0, "sourceType": "VERIFIED_RECEIPT", "note": "Anthropic 官网 Ultra 官方价 $200.00/月（比美区苹果内购 $249.99 省 20% 苹果税）" },
+      "CL": { "cur": "CLP", "listed": 299990.0, "taxAtCheckout": false, "vatIncludedPct": 19, "taxFreeTotal": 252092.4, "sourceType": "VERIFIED_RECEIPT", "note": "智利官方挂牌 299,990 CLP；RUT 去税后 252,092 CLP (约 $248 美元)" }
     }
   },
   "gemini": {
