@@ -1,0 +1,27 @@
+{
+  "_comment": "复制本文件为 config/checkout-sessions.json 并填入你登录各平台后进入结账页抓取到的真实 Stripe Checkout Session ID 与 Publishable Key，每日 00:00 爬虫会自动对支付页做零扣费 Dry-Run 算税与免税州去税探测。",
+  "sessions": [
+    {
+      "aiId": "chatgpt",
+      "planId": "gpt-plus-m",
+      "sessionCountry": "PH",
+      "sessionId": "oaics_live_REPLACE_ME",
+      "publishableKey": "pk_live_REPLACE_ME",
+      "countries": ["PH"]
+    },
+    {
+      "aiId": "cursor",
+      "planId": "cursor-pro-m",
+      "sessionId": "cs_live_REPLACE_ME",
+      "publishableKey": "pk_live_REPLACE_ME",
+      "countries": ["US", "US-TX", "GB", "DE", "FR", "JP", "CA", "SG", "AU"]
+    },
+    {
+      "aiId": "midjourney",
+      "planId": "mj-std-m",
+      "sessionId": "cs_live_REPLACE_ME",
+      "publishableKey": "pk_live_REPLACE_ME",
+      "countries": ["US", "US-TX", "GB", "DE", "FR", "JP", "CA", "SG", "AU"]
+    }
+  ]
+}

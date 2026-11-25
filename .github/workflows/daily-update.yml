@@ -1,0 +1,64 @@
+name: Daily 00:00 Auto-Update & Deploy
+
+on:
+  schedule:
+    # UTC 16:00 = 北京时间 (UTC+8) 每日 00:00 自动更新
+    - cron: '0 16 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'openprice-pro-daily'
+  cancel-in-progress: false
+
+jobs:
+  update-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run daily 00:00 FX & price updater
+        run: npm run update-data
+
+      - name: Commit updated prices_all_countries.json
+        run: |
+          git config user.name "OpenPrice-Pro-Bot"
+          git config user.email "bot@openprice.pro"
+          git add public/prices_all_countries.json
+          git diff --staged --quiet || git commit -m "chore(daily-00:00): update FX rates and global AI prices"
+          git push
+
+      - name: Build production web bundle
+        run: npm run build
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy-pages:
+    needs: update-and-build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
