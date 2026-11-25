@@ -220,28 +220,28 @@
       "countryName": "加拿大",
       "currency": "USD",
       "vatPct": 13,
-      "canTaxExempt": true,
-      "method": "填报阿省 (AB 邮编 T2P 1J9) 减免至 5%，或填美免税州",
-      "mechanism": "加拿大按省收税 (安省 13% HST, 魁省 14.975%)，选阿省仅 5% GST；外币卡改美区 0 税",
-      "verifiedStatus": "VERIFIED_CONFIRMED"
+      "canTaxExempt": null,
+      "method": "需接入加拿大真实 Session 探针实测",
+      "mechanism": "加拿大按省收税；实测需通过探针核验 AVS 拦截与省税差额",
+      "verifiedStatus": "AWAITING_LIVE_PROBE"
     },
     "JP": {
       "countryName": "日本",
       "currency": "JPY",
       "vatPct": 10,
-      "canTaxExempt": true,
-      "method": "改填美区免税州账单 或 企业适格发票号",
-      "mechanism": "Stripe 去除 10% JCT 消费税，全币种卡实测可去税扣款",
-      "verifiedStatus": "VERIFIED_CONFIRMED"
+      "canTaxExempt": null,
+      "method": "需接入日本真实 Session 探针实测",
+      "mechanism": "日本 10% JCT；实测需通过探针核验改免税州是否强转美元",
+      "verifiedStatus": "AWAITING_LIVE_PROBE"
     },
     "DE": {
       "countryName": "德国 (欧盟)",
       "currency": "EUR",
       "vatPct": 19,
-      "canTaxExempt": true,
-      "method": "填写 EU VAT 商业税号 (Reverse Charge 逆向征税)",
-      "mechanism": "B2B 模式税率降为 0%，立减 19% 增值税；个人欧卡受 3DS 卡属地绑定拦截",
-      "verifiedStatus": "VERIFIED_CONFIRMED"
+      "canTaxExempt": null,
+      "method": "需接入欧盟真实 Session 探针实测",
+      "mechanism": "欧盟 B2B VAT 逆向征税；实测需通过探针核验 EU VAT ID 接口返回",
+      "verifiedStatus": "AWAITING_LIVE_PROBE"
     },
     "GB": {
       "countryName": "英国",
