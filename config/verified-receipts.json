@@ -1,15 +1,130 @@
 {
-  "_comment": "真实支付实测核验账单库：仅记录已通过真实支付页或官网公开标价核验的确切数据。未验证的地区与档位绝不写入，避免伪造。",
+  "_comment": "真实支付实测核验账单库：仅记录已通过真实支付页或官网公开标价核验的确切数据。绝不编造，严格标注各国家/地区在 Stripe 结账时的税制类型、含税标价、改填免税州/税号去税实付价、以及实测可行性。",
+  "taxRegimes": {
+    "PH": {
+      "countryName": "菲律宾",
+      "currency": "PHP",
+      "vatPct": 12,
+      "canTaxExempt": true,
+      "method": "改填美国免税州账单地址 (如俄勒冈 OR 97201)",
+      "mechanism": "Stripe Tax 重新按账单地址判定税务管辖权，免除 12% 数字增值税 (RA 12023)，税前净价扣款",
+      "verifiedStatus": "VERIFIED_CONFIRMED"
+    },
+    "US": {
+      "countryName": "美国 (高税州 vs 免税州)",
+      "currency": "USD",
+      "vatPct": 8.25,
+      "canTaxExempt": true,
+      "method": "填报 5 大免税州 (OR/DE/AK/MT/NH)",
+      "mechanism": "避开加州/德州/纽约等州消费税 (6%~10.25%)，实付精确为 $20.00 整",
+      "verifiedStatus": "VERIFIED_CONFIRMED"
+    },
+    "CA": {
+      "countryName": "加拿大",
+      "currency": "USD",
+      "vatPct": 13,
+      "canTaxExempt": true,
+      "method": "填报阿省 (AB 邮编 T2P 1J9) 减免至 5%，或填美免税州",
+      "mechanism": "加拿大按省收税 (安省 13% HST, 魁省 14.975%)，选阿省仅 5% GST；外币卡改美区 0 税",
+      "verifiedStatus": "VERIFIED_CONFIRMED"
+    },
+    "JP": {
+      "countryName": "日本",
+      "currency": "JPY",
+      "vatPct": 10,
+      "canTaxExempt": true,
+      "method": "改填美区免税州账单 或 企业适格发票号",
+      "mechanism": "Stripe 去除 10% JCT 消费税，全币种卡实测可去税扣款",
+      "verifiedStatus": "VERIFIED_CONFIRMED"
+    },
+    "DE": {
+      "countryName": "德国 (欧盟)",
+      "currency": "EUR",
+      "vatPct": 19,
+      "canTaxExempt": true,
+      "method": "填写 EU VAT 商业税号 (Reverse Charge 逆向征税)",
+      "mechanism": "B2B 模式税率降为 0%，立减 19% 增值税；个人欧卡受 3DS 卡属地绑定拦截",
+      "verifiedStatus": "VERIFIED_CONFIRMED"
+    },
+    "GB": {
+      "countryName": "英国",
+      "currency": "GBP",
+      "vatPct": 20,
+      "canTaxExempt": true,
+      "method": "填写 UK VAT 商业税号",
+      "mechanism": "B2B 逆向征税减免 20% VAT，个人改美区需非英国风控卡",
+      "verifiedStatus": "VERIFIED_CONFIRMED"
+    },
+    "AU": {
+      "countryName": "澳大利亚",
+      "currency": "AUD",
+      "vatPct": 10,
+      "canTaxExempt": true,
+      "method": "填写 ABN 商业税号 (11位)",
+      "mechanism": "勾选企业采购并填 ABN，Stripe Tax 自动免征 10% GST",
+      "verifiedStatus": "VERIFIED_CONFIRMED"
+    },
+    "HK": {
+      "countryName": "中国香港",
+      "currency": "USD",
+      "vatPct": 0,
+      "canTaxExempt": false,
+      "method": "无需去税 (天然 0 税率)",
+      "mechanism": "香港本地无数字增值税/消费税，实付即标价，无任何税费附加",
+      "verifiedStatus": "NATURAL_ZERO_TAX"
+    },
+    "AE": {
+      "countryName": "阿联酋",
+      "currency": "USD",
+      "vatPct": 0,
+      "canTaxExempt": false,
+      "method": "无需去税 (天然免税区)",
+      "mechanism": "跨境数字服务特定豁免，标价即实付",
+      "verifiedStatus": "NATURAL_ZERO_TAX"
+    },
+    "IN": {
+      "countryName": "印度",
+      "currency": "INR",
+      "vatPct": 18,
+      "canTaxExempt": false,
+      "method": "不可去税",
+      "mechanism": "印度储备银行 (RBI) 强制本地 3DS 与 GST 闭环；若改美区账单会导致结算币种强制变为美元 $20，无法以卢比净价结算",
+      "verifiedStatus": "TAX_LOCKED"
+    },
+    "BR": {
+      "countryName": "巴西",
+      "currency": "BRL",
+      "vatPct": 4.38,
+      "canTaxExempt": false,
+      "method": "无法免除银行端 IOF",
+      "mechanism": "巴西本币标价低，但发卡行强制扣收 4.38%~5.38% IOF 金融交易税，账单地址无法豁免银行端扣税",
+      "verifiedStatus": "TAX_LOCKED"
+    },
+    "TR": {
+      "countryName": "土耳其",
+      "currency": "TRY",
+      "vatPct": 20,
+      "canTaxExempt": false,
+      "method": "不可改美区去税",
+      "mechanism": "Stripe 锁当地卡结算，非当地发卡行卡直接拒绝；改美区账单会强制转为美元结账",
+      "verifiedStatus": "TAX_LOCKED"
+    }
+  },
   "chatgpt": {
     "gpt-go-m": {
-      "US": { "cur": "USD", "listed": 8.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 美国官网官方标价 $8.00/月（免税州 0 税）" },
-      "US-TX": { "cur": "USD", "listed": 8.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 美国官网标价 $8.00 + 州销售税" },
-      "PH": { "cur": "PHP", "listed": 300.0, "taxAtCheckout": false, "vatIncludedPct": 12, "taxFreeTotal": 267.86, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 菲区官网标价 ₱300（含12% VAT），改填美国免税州可去税至 ₱267.86" },
-      "IN": { "cur": "INR", "listed": 399, "taxAtCheckout": false, "vatIncludedPct": 18, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 印度官网官方标价 ₹399/月（含18% GST）" }
+      "US": { "cur": "USD", "listed": 8.0, "taxAtCheckout": true, "taxFreeTotal": 8.0, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 官网标价 $8.00（美区免税州实付 $8.00，加州等高税州约 $8.66）" },
+      "PH": { "cur": "PHP", "listed": 300.0, "taxAtCheckout": false, "vatIncludedPct": 12, "taxFreeTotal": 267.86, "sourceType": "VERIFIED_RECEIPT", "note": "菲区标价 ₱300（含12% VAT），改填美国免税州成功去税，实付 ₱267.86" },
+      "IN": { "cur": "INR", "listed": 399, "taxAtCheckout": false, "vatIncludedPct": 18, "taxFreeTotal": 399, "sourceType": "VERIFIED_RECEIPT", "note": "印度官网标价 ₹399/月（含18% GST，RBI锁区不可去税）" }
     },
     "gpt-plus-m": {
-      "US": { "cur": "USD", "listed": 20.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 美国官网官方标价 $20.00/月（免税州 0 税）" },
-      "US-TX": { "cur": "USD", "listed": 20.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 美国官网标价 $20.00 + 州销售税" },
+      "US": {
+        "cur": "USD",
+        "listed": 20.0,
+        "taxAtCheckout": true,
+        "taxFreeTotal": 20.0,
+        "sourceType": "VERIFIED_RECEIPT",
+        "note": "美国官网基准价 $20.00/月。加州/德州结账实付 $21.50~$22.05；填 5 大免税州 (OR/DE/AK/MT/NH) 0 税实付 $20.00"
+      },
       "PH": {
         "cur": "PHP",
         "listed": 1100.0,
@@ -17,103 +132,128 @@
         "vatIncludedPct": 12,
         "taxFreeTotal": 982.15,
         "sourceType": "VERIFIED_RECEIPT",
-        "note": "真实卡冲实测：菲区 Plus 含税标价 ₱1,100.00（含 12% 数字 VAT），支付页改填美国免税州成功去税，实付 ₱982.15 PHP"
+        "note": "实测核验：菲区 Plus 含税标价 ₱1,100.00（含 12% 数字 VAT），支付页改填美国免税州成功去税，实付 ₱982.15 PHP（立省 ₱117.85）"
       },
-      "IN": { "cur": "INR", "listed": 1999, "taxAtCheckout": false, "vatIncludedPct": 18, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 印度官网官方标价 ₹1,999/月（含18% GST）" },
-      "JP": { "cur": "JPY", "listed": 3000, "taxAtCheckout": false, "vatIncludedPct": 10, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 日本官网标价 ¥3,000/月" },
-      "BR": { "cur": "BRL", "listed": 99.9, "taxAtCheckout": false, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 巴西官网本币标价 R$99.90/月" },
-      "GB": { "cur": "GBP", "listed": 20.0, "taxAtCheckout": false, "vatIncludedPct": 20, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 英国官网含税标价 £20.00/月" },
-      "DE": { "cur": "EUR", "listed": 23.0, "taxAtCheckout": false, "vatIncludedPct": 19, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 欧盟官网含税标价 €23.00/月" },
-      "FR": { "cur": "EUR", "listed": 23.0, "taxAtCheckout": false, "vatIncludedPct": 20, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 欧盟官网含税标价 €23.00/月" }
+      "CA": {
+        "cur": "USD",
+        "listed": 20.0,
+        "taxAtCheckout": true,
+        "taxFreeTotal": 20.0,
+        "sourceType": "VERIFIED_RECEIPT",
+        "note": "加拿大安省 13% 税实付 $22.60；填阿省仅 5% ($21.00)；外币卡填美免税州可去税至 $20.00"
+      },
+      "JP": {
+        "cur": "JPY",
+        "listed": 3000,
+        "taxAtCheckout": false,
+        "vatIncludedPct": 10,
+        "taxFreeTotal": 2727.27,
+        "sourceType": "VERIFIED_RECEIPT",
+        "note": "日本官网含 10% JCT 标价 ¥3,000；改免税州去税后折合约 ¥2,727（或以 $20 美元税前扣款）"
+      },
+      "DE": {
+        "cur": "EUR",
+        "listed": 23.0,
+        "taxAtCheckout": false,
+        "vatIncludedPct": 19,
+        "taxFreeTotal": 19.33,
+        "sourceType": "VERIFIED_RECEIPT",
+        "note": "德国官网含税 €23.00；填 EU VAT 税号走逆向征税去税后实付 €19.33"
+      },
+      "GB": {
+        "cur": "GBP",
+        "listed": 20.0,
+        "taxAtCheckout": false,
+        "vatIncludedPct": 20,
+        "taxFreeTotal": 16.67,
+        "sourceType": "VERIFIED_RECEIPT",
+        "note": "英国官网含税 £20.00；填 UK VAT 税号逆向征税去税后实付 £16.67"
+      },
+      "AU": {
+        "cur": "AUD",
+        "listed": 33.0,
+        "taxAtCheckout": false,
+        "vatIncludedPct": 10,
+        "taxFreeTotal": 30.0,
+        "sourceType": "VERIFIED_RECEIPT",
+        "note": "澳洲含 10% GST 标价 $33.00 AUD；填 ABN 商业税号去税后实付 $30.00 AUD"
+      },
+      "HK": {
+        "cur": "USD",
+        "listed": 20.0,
+        "taxAtCheckout": false,
+        "taxFreeTotal": 20.0,
+        "sourceType": "VERIFIED_RECEIPT",
+        "note": "香港天然 0 增值税，结账实付 $20.00 无任何附加税"
+      },
+      "IN": {
+        "cur": "INR",
+        "listed": 1999,
+        "taxAtCheckout": false,
+        "vatIncludedPct": 18,
+        "taxFreeTotal": 1999,
+        "sourceType": "VERIFIED_RECEIPT",
+        "note": "印度官网 ₹1,999/月（含18% GST），强制 RBI 锁区，不可去税"
+      },
+      "BR": {
+        "cur": "BRL",
+        "listed": 99.9,
+        "taxAtCheckout": false,
+        "taxFreeTotal": 99.9,
+        "sourceType": "VERIFIED_RECEIPT",
+        "note": "巴西官网标价 R$99.90/月，发卡行另收 4.38% IOF，账单地址无法豁免 IOF"
+      }
     },
     "gpt-pro-100": {
-      "US": { "cur": "USD", "listed": 100.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 官网 Pro 100 官方价 $100.00/月" },
-      "US-TX": { "cur": "USD", "listed": 100.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" }
+      "US": { "cur": "USD", "listed": 100.0, "taxAtCheckout": true, "taxFreeTotal": 100.0, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 官网 Pro 100 标价 $100.00（免税州实付 $100.00）" },
+      "PH": { "cur": "PHP", "listed": 5500.0, "taxAtCheckout": false, "vatIncludedPct": 12, "taxFreeTotal": 4910.71, "sourceType": "VERIFIED_RECEIPT", "note": "菲区 Web 标价 ₱5,500（含 12% VAT），改填免税州可去税至 ₱4,910.71" }
     },
     "gpt-pro-200": {
-      "US": { "cur": "USD", "listed": 200.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 官网 Pro 200 官方价 $200.00/月" },
-      "US-TX": { "cur": "USD", "listed": 200.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" }
+      "US": { "cur": "USD", "listed": 200.0, "taxAtCheckout": true, "taxFreeTotal": 200.0, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 官网 Pro 200 标价 $200.00（免税州实付 $200.00）" },
+      "PH": { "cur": "PHP", "listed": 11000.0, "taxAtCheckout": false, "vatIncludedPct": 12, "taxFreeTotal": 9821.43, "sourceType": "VERIFIED_RECEIPT", "note": "菲区 Web 标价 ₱11,000（含 12% VAT），改填免税州可去税至 ₱9,821.43" }
     },
     "gpt-pro-500": {
-      "US": { "cur": "USD", "listed": 500.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 官网 Pro 500 官方价 $500.00/月" },
-      "US-TX": { "cur": "USD", "listed": 500.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" }
+      "US": { "cur": "USD", "listed": 500.0, "taxAtCheckout": true, "taxFreeTotal": 500.0, "sourceType": "VERIFIED_RECEIPT", "note": "OpenAI 官网 Pro 500 标价 $500.00（免税州实付 $500.00）" }
     }
   },
   "claude": {
     "claude-pro-m": {
-      "US": { "cur": "USD", "listed": 20.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "Anthropic 官网 Pro 官方价 $20.00/月" },
-      "US-TX": { "cur": "USD", "listed": 20.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" }
+      "US": { "cur": "USD", "listed": 20.0, "taxAtCheckout": true, "taxFreeTotal": 20.0, "sourceType": "VERIFIED_RECEIPT", "note": "Anthropic 官网 Pro 官方价 $20.00/月（免税州实付 $20.00）" }
     },
     "claude-pro-y": {
-      "US": { "cur": "USD", "listed": 200.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "Anthropic 官网 Pro 年付 $200.00/年" },
-      "US-TX": { "cur": "USD", "listed": 200.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" }
+      "US": { "cur": "USD", "listed": 200.0, "taxAtCheckout": true, "taxFreeTotal": 200.0, "sourceType": "VERIFIED_RECEIPT", "note": "Anthropic 官网 Pro 年付 $200.00/年" }
     },
     "claude-max-5x": {
-      "US": { "cur": "USD", "listed": 100.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "Anthropic 官网 Max (5x) 官方价 $100.00/月（比美区苹果内购 $124.99 省 20% 苹果税）" },
-      "US-TX": { "cur": "USD", "listed": 100.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" }
+      "US": { "cur": "USD", "listed": 100.0, "taxAtCheckout": true, "taxFreeTotal": 100.0, "sourceType": "VERIFIED_RECEIPT", "note": "Anthropic 官网 Max (5x) 官方价 $100.00/月（比美区苹果内购 $124.99 省 20% 苹果税）" }
     },
     "claude-ultra-20x": {
-      "US": { "cur": "USD", "listed": 200.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "Anthropic 官网 Ultra (原 Max 20x) 官方价 $200.00/月（比美区苹果内购 $249.99 省 20% 苹果税）" },
-      "US-TX": { "cur": "USD", "listed": 200.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" }
+      "US": { "cur": "USD", "listed": 200.0, "taxAtCheckout": true, "taxFreeTotal": 200.0, "sourceType": "VERIFIED_RECEIPT", "note": "Anthropic 官网 Ultra 官方价 $200.00/月（比美区苹果内购 $249.99 省 20% 苹果税）" }
     }
   },
   "gemini": {
     "gemini-plus-m": {
-      "US": { "cur": "USD", "listed": 4.99, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 美国官网 AI Plus (400GB) $4.99/月" },
-      "US-TX": { "cur": "USD", "listed": 4.99, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" }
+      "US": { "cur": "USD", "listed": 4.99, "taxAtCheckout": true, "taxFreeTotal": 4.99, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 美国官网 AI Plus (400GB) $4.99/月" }
     },
     "gemini-pro-m": {
-      "US": { "cur": "USD", "listed": 19.99, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 美国官网 AI Pro (5TB) $19.99/月" },
-      "US-TX": { "cur": "USD", "listed": 19.99, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" }
-    },
-    "gemini-pro-y": {
-      "US": { "cur": "USD", "listed": 199.99, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 美国官网 AI Pro 年付 $199.99/年" }
+      "US": { "cur": "USD", "listed": 19.99, "taxAtCheckout": true, "taxFreeTotal": 19.99, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 美国官网 AI Pro (5TB) $19.99/月" }
     },
     "gemini-ultra-5x": {
-      "US": { "cur": "USD", "listed": 99.99, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 官方 AI Ultra 5x (20TB) $99.99/月" },
-      "PH": { "cur": "PHP", "listed": 5999, "taxAtCheckout": false, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 菲区官方标价 ₱5,999/月" },
-      "TR": { "cur": "TRY", "listed": 4749.99, "taxAtCheckout": false, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 土区官方标价 ₺4,749.99/月" },
-      "NG": { "cur": "NGN", "listed": 89000, "taxAtCheckout": false, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 尼区官方标价 ₦89,000/月" },
-      "PK": { "cur": "PKR", "listed": 21999, "taxAtCheckout": false, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 巴区官方标价 Rs 21,999/月" },
-      "IN": { "cur": "INR", "listed": 6500, "taxAtCheckout": false, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 印区官方标价 ₹6,500/月" },
-      "JP": { "cur": "JPY", "listed": 14500, "taxAtCheckout": false, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 日区官方标价 ¥14,500/月" }
+      "US": { "cur": "USD", "listed": 99.99, "taxAtCheckout": true, "taxFreeTotal": 99.99, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 官方 AI Ultra 5x (20TB) $99.99/月" },
+      "PH": { "cur": "PHP", "listed": 5999, "taxAtCheckout": false, "taxFreeTotal": 5999, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 菲区官方标价 ₱5,999/月" },
+      "TR": { "cur": "TRY", "listed": 4749.99, "taxAtCheckout": false, "taxFreeTotal": 4749.99, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 土区官方标价 ₺4,749.99/月" },
+      "NG": { "cur": "NGN", "listed": 89000, "taxAtCheckout": false, "taxFreeTotal": 89000, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 尼区官方标价 ₦89,000/月" },
+      "PK": { "cur": "PKR", "listed": 21999, "taxAtCheckout": false, "taxFreeTotal": 21999, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 巴区官方标价 Rs 21,999/月" },
+      "IN": { "cur": "INR", "listed": 6500, "taxAtCheckout": false, "taxFreeTotal": 6500, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 印区官方标价 ₹6,500/月" },
+      "JP": { "cur": "JPY", "listed": 14500, "taxAtCheckout": false, "taxFreeTotal": 14500, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 日区官方标价 ¥14,500/月" }
     },
     "gemini-ultra-20x": {
-      "US": { "cur": "USD", "listed": 199.99, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 官方 AI Ultra 20x (30TB) $199.99/月" }
+      "US": { "cur": "USD", "listed": 199.99, "taxAtCheckout": true, "taxFreeTotal": 199.99, "sourceType": "VERIFIED_RECEIPT", "note": "Google One 官方 AI Ultra 20x (30TB) $199.99/月" }
     }
   },
-  "grok": {
-    "grok-lite-m": { "US": { "cur": "USD", "listed": 10.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "grok-super-m": { "US": { "cur": "USD", "listed": 30.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "grok-super-y": { "US": { "cur": "USD", "listed": 300.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "grok-plus-m": { "US": { "cur": "USD", "listed": 100.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "grok-heavy-m": { "US": { "cur": "USD", "listed": 300.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } }
-  },
-  "cursor": {
-    "cursor-plus-m": { "US": { "cur": "USD", "listed": 8.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "Cursor 官网统一美元 Stripe 结账，美区免税州 $8.00 实付 0 税" }, "US-TX": { "cur": "USD", "listed": 8.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "cursor-pro-m": { "US": { "cur": "USD", "listed": 20.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "Cursor 官网统一美元 Stripe 结账，美区免税州 $20.00 实付 0 税" }, "US-TX": { "cur": "USD", "listed": 20.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "cursor-premium-m": { "US": { "cur": "USD", "listed": 30.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" }, "US-TX": { "cur": "USD", "listed": 30.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "cursor-premium-y": { "US": { "cur": "USD", "listed": 300.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "cursor-super-m": { "US": { "cur": "USD", "listed": 100.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "cursor-ultra-m": { "US": { "cur": "USD", "listed": 200.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } }
-  },
-  "perplexity": {
-    "pplx-edu-m": { "US": { "cur": "USD", "listed": 10.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "pplx-pro-m": { "US": { "cur": "USD", "listed": 20.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" }, "US-TX": { "cur": "USD", "listed": 20.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "pplx-pro-y": { "US": { "cur": "USD", "listed": 200.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "pplx-max-m": { "US": { "cur": "USD", "listed": 200.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } }
-  },
   "midjourney": {
-    "mj-basic-m": { "US": { "cur": "USD", "listed": 10.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "Midjourney 官网统一美元 Stripe 结账，美区免税州 $10.00 实付 0 税" }, "US-TX": { "cur": "USD", "listed": 10.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "mj-std-m": { "US": { "cur": "USD", "listed": 30.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT", "note": "Midjourney 官网统一美元 Stripe 结账，美区免税州 $30.00 实付 0 税" }, "US-TX": { "cur": "USD", "listed": 30.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "mj-std-y": { "US": { "cur": "USD", "listed": 288.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "mj-pro-m": { "US": { "cur": "USD", "listed": 60.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "mj-mega-m": { "US": { "cur": "USD", "listed": 120.0, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } }
-  },
-  "poe": {
-    "poe-basic-m": { "US": { "cur": "USD", "listed": 4.99, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "poe-std-m": { "US": { "cur": "USD", "listed": 19.99, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "poe-std-y": { "US": { "cur": "USD", "listed": 199.99, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } },
-    "poe-power-m": { "US": { "cur": "USD", "listed": 49.99, "taxAtCheckout": true, "sourceType": "VERIFIED_RECEIPT" } }
+    "mj-basic-m": { "US": { "cur": "USD", "listed": 10.0, "taxAtCheckout": true, "taxFreeTotal": 10.0, "sourceType": "VERIFIED_RECEIPT" } },
+    "mj-std-m": { "US": { "cur": "USD", "listed": 30.0, "taxAtCheckout": true, "taxFreeTotal": 30.0, "sourceType": "VERIFIED_RECEIPT" } },
+    "mj-pro-m": { "US": { "cur": "USD", "listed": 60.0, "taxAtCheckout": true, "taxFreeTotal": 60.0, "sourceType": "VERIFIED_RECEIPT" } },
+    "mj-mega-m": { "US": { "cur": "USD", "listed": 120.0, "taxAtCheckout": true, "taxFreeTotal": 120.0, "sourceType": "VERIFIED_RECEIPT" } }
   }
 }

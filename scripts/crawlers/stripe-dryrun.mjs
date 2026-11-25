@@ -95,6 +95,7 @@ async function queryStripeTax(sessionId, publishableKey, region) {
 export async function crawlWebStripeDryRun(rootDir) {
   const started = Date.now();
   const liveWebPrices = {};
+  let taxRegimes = {};
   let probedCount = 0;
   let configuredSessions = 0;
   let receiptsLoaded = 0;
@@ -104,8 +105,9 @@ export async function crawlWebStripeDryRun(rootDir) {
   if (fs.existsSync(receiptsPath)) {
     try {
       const receipts = JSON.parse(fs.readFileSync(receiptsPath, 'utf8'));
+      if (receipts.taxRegimes) taxRegimes = receipts.taxRegimes;
       for (const [aiId, plans] of Object.entries(receipts || {})) {
-        if (aiId.startsWith('_')) continue;
+        if (aiId.startsWith('_') || aiId === 'taxRegimes') continue;
         if (!liveWebPrices[aiId]) liveWebPrices[aiId] = {};
         for (const [planId, countries] of Object.entries(plans || {})) {
           if (!liveWebPrices[aiId][planId]) liveWebPrices[aiId][planId] = {};
@@ -193,6 +195,7 @@ export async function crawlWebStripeDryRun(rootDir) {
 
   return {
     liveWebPrices,
+    taxRegimes,
     stats: {
       configuredSessions,
       probedCount,

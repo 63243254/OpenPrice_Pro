@@ -139,6 +139,7 @@ export async function updatePrices({ skipIapProbe = false } = {}) {
       durationMs: finishedAt.getTime() - startedAt.getTime(),
     },
     rates: finalRates,
+    taxRegimes: webRes.taxRegimes || {},
     liveIapPrices: appleRes.stats.totalSkuHits > 0 ? appleRes.liveIapPrices : previousSnapshot?.liveIapPrices || {},
     liveGPlayRanges: gplayRes.stats.rangeHits > 0 ? gplayRes.liveGPlayRanges : previousSnapshot?.liveGPlayRanges || {},
     liveGPlayExact: gplayRes.liveGPlayExact || {},
