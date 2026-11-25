@@ -2,8 +2,8 @@
   "meta": {
     "schemaVersion": 4,
     "strictRealOnly": true,
-    "updatedAt": "2026-11-25T10:51:05.658Z",
-    "updatedAtBeijing": "2026-11-25 18:51:05",
+    "updatedAt": "2026-11-25T11:14:27.310Z",
+    "updatedAtBeijing": "2026-11-25 19:14:27",
     "nextScheduledUpdateBeijing": "2026-11-26 00:00:00",
     "scheduleRule": "每天 00:00 自动更新 (Asia/Shanghai)",
     "fxStatus": "live",
@@ -11,14 +11,14 @@
     "fxLastUpdateUtc": "Wed, 25 Nov 2026 00:02:31 +0000",
     "fxCurrencyCount": 166,
     "usdToCny": 6.678179,
-    "liveIapProbedCount": 803,
-    "liveStorefrontsHit": 42,
+    "liveIapProbedCount": 990,
+    "liveStorefrontsHit": 51,
     "appleTargetStorefronts": 173,
     "gplayRangeHits": 204,
     "gplayExactSkuHits": 0,
     "webStripeLiveProbedCount": 0,
-    "webVerifiedReceiptsCount": 36,
-    "durationMs": 60682
+    "webVerifiedReceiptsCount": 40,
+    "durationMs": 56462
   },
   "rates": {
     "USD": 1,
@@ -196,6 +196,15 @@
       "canTaxExempt": true,
       "method": "改填美国免税州账单地址 (如俄勒冈 OR 97201)",
       "mechanism": "Stripe Tax 重新按账单地址判定税务管辖权，免除 12% 数字增值税 (RA 12023)，税前净价扣款",
+      "verifiedStatus": "VERIFIED_CONFIRMED"
+    },
+    "CL": {
+      "countryName": "智利",
+      "currency": "CLP",
+      "vatPct": 19,
+      "canTaxExempt": true,
+      "method": "填写智利企业/个人税号 RUT (Rol Único Tributario) 或改填美区免税州",
+      "mechanism": "智利税务局 (SII) 规定增值税纳税人持有效 RUT 申请 Factura Electrónica 可免除 19% IVA 数字服务税 (Ley 21.210)；Stripe 改免税州实测免税",
       "verifiedStatus": "VERIFIED_CONFIRMED"
     },
     "US": {
@@ -427,113 +436,161 @@
           false,
           "USD 5.99"
         ],
+        "UA": [
+          "USD",
+          6.99,
+          false,
+          "6,99 USD"
+        ],
         "GB": [
           "GBP",
           6.99,
           false,
           "£6.99"
         ],
-        "DE": [
+        "FR": [
           "EUR",
           7.99,
           false,
           "7,99 €"
         ],
-        "TJ": [
+        "GR": [
+          "EUR",
+          7.99,
+          false,
+          "7,99 €"
+        ],
+        "GT": [
           "USD",
           5.99,
           false,
           "USD 5.99"
         ],
-        "TM": [
+        "GW": [
+          "USD",
+          4.99,
+          false,
+          "USD 4.99"
+        ],
+        "GY": [
+          "USD",
+          5.99,
+          false,
+          "USD 5.99"
+        ],
+        "HN": [
+          "USD",
+          4.99,
+          false,
+          "USD 4.99"
+        ],
+        "HR": [
+          "EUR",
+          7.99,
+          false,
+          "7,99 €"
+        ],
+        "IE": [
+          "EUR",
+          7.99,
+          false,
+          "€7.99"
+        ],
+        "IQ": [
+          "USD",
+          4.99,
+          false,
+          "$4.99"
+        ],
+        "IS": [
+          "USD",
+          9.99,
+          false,
+          "USD 9.99"
+        ],
+        "JM": [
+          "USD",
+          5.99,
+          false,
+          "USD 5.99"
+        ],
+        "JO": [
+          "USD",
+          4.99,
+          false,
+          "$4.99"
+        ],
+        "KG": [
+          "USD",
+          5.99,
+          false,
+          "USD 5.99"
+        ],
+        "KH": [
+          "USD",
+          5.49,
+          false,
+          "USD 5.49"
+        ],
+        "KN": [
+          "USD",
+          8,
+          false,
+          "USD 8.00"
+        ],
+        "KW": [
+          "USD",
+          7.99,
+          false,
+          "$7.99"
+        ],
+        "KY": [
           "USD",
           7.99,
           false,
           "USD 7.99"
         ],
-        "TN": [
+        "LA": [
           "USD",
-          4.99,
+          5.49,
           false,
-          "$4.99"
+          "USD 5.49"
         ],
-        "TO": [
+        "LB": [
+          "USD",
+          5.99,
+          false,
+          "$5.99"
+        ],
+        "LC": [
           "USD",
           7,
           false,
           "USD 7.00"
         ],
-        "TT": [
-          "USD",
-          8,
-          false,
-          "USD 8.00"
-        ],
-        "TZ": [
-          "TZS",
-          14900,
-          false,
-          "14,900.00 TZS"
-        ],
-        "UG": [
-          "USD",
-          5.99,
-          false,
-          "USD 5.99"
-        ],
-        "UY": [
-          "USD",
-          8.99,
-          false,
-          "USD 8.99"
-        ],
-        "UZ": [
-          "USD",
-          5.99,
-          false,
-          "USD 5.99"
-        ],
-        "VC": [
-          "USD",
-          7,
-          false,
-          "USD 7.00"
-        ],
-        "VG": [
-          "USD",
-          8,
-          false,
-          "USD 8.00"
-        ],
-        "VU": [
+        "LK": [
           "USD",
           5,
           false,
           "USD 5.00"
         ],
-        "XK": [
-          "EUR",
-          7,
-          false,
-          "7,00 €"
-        ],
-        "YE": [
+        "LR": [
           "USD",
           4.99,
           false,
-          "$4.99"
+          "USD 4.99"
         ],
-        "ZM": [
+        "LT": [
+          "EUR",
+          7.99,
+          false,
+          "7,99 €"
+        ],
+        "LY": [
           "USD",
           5.99,
           false,
-          "USD 5.99"
-        ],
-        "ZW": [
-          "USD",
-          5.99,
-          false,
-          "USD 5.99"
+          "$5.99"
         ]
       },
       "gpt-plus-m": {
@@ -663,113 +720,161 @@
           false,
           "USD 22.99"
         ],
+        "UA": [
+          "USD",
+          22.99,
+          false,
+          "22,99 USD"
+        ],
         "GB": [
           "GBP",
           19.99,
           false,
           "£19.99"
         ],
-        "DE": [
+        "FR": [
           "EUR",
           22.99,
           false,
           "22,99 €"
         ],
-        "TJ": [
-          "USD",
-          22.99,
-          false,
-          "USD 22.99"
-        ],
-        "TM": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "TN": [
-          "USD",
-          19.99,
-          false,
-          "$19.99"
-        ],
-        "TO": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "TT": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "TZ": [
-          "TZS",
-          49900,
-          false,
-          "49,900.00 TZS"
-        ],
-        "UG": [
-          "USD",
-          22.99,
-          false,
-          "USD 22.99"
-        ],
-        "UY": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "UZ": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "VC": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "VG": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "VU": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "XK": [
+        "GR": [
           "EUR",
           22.99,
           false,
           "22,99 €"
         ],
-        "YE": [
-          "USD",
-          19.99,
-          false,
-          "$19.99"
-        ],
-        "ZM": [
+        "GT": [
           "USD",
           19.99,
           false,
           "USD 19.99"
         ],
-        "ZW": [
+        "GW": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "GY": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "HN": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "HR": [
+          "EUR",
+          22.99,
+          false,
+          "22,99 €"
+        ],
+        "IE": [
+          "EUR",
+          22.99,
+          false,
+          "€22.99"
+        ],
+        "IQ": [
+          "USD",
+          19.99,
+          false,
+          "$19.99"
+        ],
+        "IS": [
           "USD",
           22.99,
           false,
           "USD 22.99"
+        ],
+        "JM": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "JO": [
+          "USD",
+          19.99,
+          false,
+          "$19.99"
+        ],
+        "KG": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "KH": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "KN": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "KW": [
+          "USD",
+          19.99,
+          false,
+          "$19.99"
+        ],
+        "KY": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "LA": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "LB": [
+          "USD",
+          19.99,
+          false,
+          "$19.99"
+        ],
+        "LC": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "LK": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "LR": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "LT": [
+          "EUR",
+          22.99,
+          false,
+          "22,99 €"
+        ],
+        "LY": [
+          "USD",
+          19.99,
+          false,
+          "$19.99"
         ]
       },
       "gpt-pro-100": {
@@ -899,113 +1004,161 @@
           false,
           "USD 114.99"
         ],
+        "UA": [
+          "USD",
+          119,
+          false,
+          "119,00 USD"
+        ],
         "GB": [
           "GBP",
           88.9,
           false,
           "£88.90"
         ],
-        "DE": [
+        "FR": [
           "EUR",
           102.99,
           false,
           "102,99 €"
         ],
-        "TJ": [
-          "USD",
-          100,
-          false,
-          "USD 100.00"
-        ],
-        "TM": [
-          "USD",
-          100,
-          false,
-          "USD 100.00"
-        ],
-        "TN": [
-          "USD",
-          100,
-          false,
-          "$100.00"
-        ],
-        "TO": [
-          "USD",
-          100,
-          false,
-          "USD 100.00"
-        ],
-        "TT": [
-          "USD",
-          100,
-          false,
-          "USD 100.00"
-        ],
-        "TZ": [
-          "TZS",
-          304900,
-          false,
-          "304,900.00 TZS"
-        ],
-        "UG": [
-          "USD",
-          117.99,
-          false,
-          "USD 117.99"
-        ],
-        "UY": [
-          "USD",
-          121.99,
-          false,
-          "USD 121.99"
-        ],
-        "UZ": [
-          "USD",
-          111.99,
-          false,
-          "USD 111.99"
-        ],
-        "VC": [
-          "USD",
-          100,
-          false,
-          "USD 100.00"
-        ],
-        "VG": [
-          "USD",
-          100,
-          false,
-          "USD 100.00"
-        ],
-        "VU": [
-          "USD",
-          100,
-          false,
-          "USD 100.00"
-        ],
-        "XK": [
+        "GR": [
           "EUR",
-          84.99,
+          102.99,
           false,
-          "84,99 €"
+          "102,99 €"
         ],
-        "YE": [
+        "GT": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "GW": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "GY": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "HN": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "HR": [
+          "EUR",
+          102.99,
+          false,
+          "102,99 €"
+        ],
+        "IE": [
+          "EUR",
+          102.99,
+          false,
+          "€102.99"
+        ],
+        "IQ": [
           "USD",
           100,
           false,
           "$100.00"
         ],
-        "ZM": [
+        "IS": [
           "USD",
-          115.99,
+          123.99,
           false,
-          "USD 115.99"
+          "USD 123.99"
         ],
-        "ZW": [
+        "JM": [
           "USD",
-          114.99,
+          100,
           false,
-          "USD 114.99"
+          "USD 100.00"
+        ],
+        "JO": [
+          "USD",
+          100,
+          false,
+          "$100.00"
+        ],
+        "KG": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "KH": [
+          "USD",
+          109.99,
+          false,
+          "USD 109.99"
+        ],
+        "KN": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "KW": [
+          "USD",
+          100,
+          false,
+          "$100.00"
+        ],
+        "KY": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "LA": [
+          "USD",
+          109.99,
+          false,
+          "USD 109.99"
+        ],
+        "LB": [
+          "USD",
+          100,
+          false,
+          "$100.00"
+        ],
+        "LC": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "LK": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "LR": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "LT": [
+          "EUR",
+          102.99,
+          false,
+          "102,99 €"
+        ],
+        "LY": [
+          "USD",
+          100,
+          false,
+          "$100.00"
         ]
       },
       "gpt-pro-200": {
@@ -1135,113 +1288,161 @@
           false,
           "USD 250.00"
         ],
+        "UA": [
+          "USD",
+          250,
+          false,
+          "250,00 USD"
+        ],
         "GB": [
           "GBP",
           200,
           false,
           "£200.00"
         ],
-        "DE": [
+        "FR": [
           "EUR",
           229,
           false,
           "229,00 €"
         ],
-        "TJ": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "TM": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "TN": [
-          "USD",
-          200,
-          false,
-          "$200.00"
-        ],
-        "TO": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "TT": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "TZ": [
-          "TZS",
-          599900,
-          false,
-          "599,900.00 TZS"
-        ],
-        "UG": [
-          "USD",
-          250,
-          false,
-          "USD 250.00"
-        ],
-        "UY": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "UZ": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "VC": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "VG": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "VU": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "XK": [
+        "GR": [
           "EUR",
           229,
           false,
           "229,00 €"
         ],
-        "YE": [
+        "GT": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "GW": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "GY": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "HN": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "HR": [
+          "EUR",
+          229,
+          false,
+          "229,00 €"
+        ],
+        "IE": [
+          "EUR",
+          229,
+          false,
+          "€229.00"
+        ],
+        "IQ": [
           "USD",
           200,
           false,
           "$200.00"
         ],
-        "ZM": [
+        "IS": [
           "USD",
           250,
           false,
           "USD 250.00"
         ],
-        "ZW": [
+        "JM": [
           "USD",
-          250,
+          200,
           false,
-          "USD 250.00"
+          "USD 200.00"
+        ],
+        "JO": [
+          "USD",
+          200,
+          false,
+          "$200.00"
+        ],
+        "KG": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "KH": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "KN": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "KW": [
+          "USD",
+          200,
+          false,
+          "$200.00"
+        ],
+        "KY": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "LA": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "LB": [
+          "USD",
+          200,
+          false,
+          "$200.00"
+        ],
+        "LC": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "LK": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "LR": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "LT": [
+          "EUR",
+          229,
+          false,
+          "229,00 €"
+        ],
+        "LY": [
+          "USD",
+          200,
+          false,
+          "$200.00"
         ]
       },
       "gpt-pro-500": {
@@ -1371,113 +1572,161 @@
           false,
           "USD 569.99"
         ],
+        "UA": [
+          "USD",
+          599,
+          false,
+          "599,00 USD"
+        ],
         "GB": [
           "GBP",
           444.99,
           false,
           "£444.99"
         ],
-        "DE": [
+        "FR": [
           "EUR",
           509.99,
           false,
           "509,99 €"
         ],
-        "TJ": [
-          "USD",
-          500,
-          false,
-          "USD 500.00"
-        ],
-        "TM": [
-          "USD",
-          500,
-          false,
-          "USD 500.00"
-        ],
-        "TN": [
-          "USD",
-          500,
-          false,
-          "$500.00"
-        ],
-        "TO": [
-          "USD",
-          500,
-          false,
-          "USD 500.00"
-        ],
-        "TT": [
-          "USD",
-          500,
-          false,
-          "USD 500.00"
-        ],
-        "TZ": [
-          "TZS",
-          1500000,
-          false,
-          "1,500,000.00 TZS"
-        ],
-        "UG": [
-          "USD",
-          589.99,
-          false,
-          "USD 589.99"
-        ],
-        "UY": [
-          "USD",
-          609.99,
-          false,
-          "USD 609.99"
-        ],
-        "UZ": [
-          "USD",
-          559.99,
-          false,
-          "USD 559.99"
-        ],
-        "VC": [
-          "USD",
-          500,
-          false,
-          "USD 500.00"
-        ],
-        "VG": [
-          "USD",
-          500,
-          false,
-          "USD 500.00"
-        ],
-        "VU": [
-          "USD",
-          500,
-          false,
-          "USD 500.00"
-        ],
-        "XK": [
+        "GR": [
           "EUR",
-          424.99,
+          509.99,
           false,
-          "424,99 €"
+          "509,99 €"
         ],
-        "YE": [
+        "GT": [
+          "USD",
+          500,
+          false,
+          "USD 500.00"
+        ],
+        "GW": [
+          "USD",
+          500,
+          false,
+          "USD 500.00"
+        ],
+        "GY": [
+          "USD",
+          500,
+          false,
+          "USD 500.00"
+        ],
+        "HN": [
+          "USD",
+          500,
+          false,
+          "USD 500.00"
+        ],
+        "HR": [
+          "EUR",
+          509.99,
+          false,
+          "509,99 €"
+        ],
+        "IE": [
+          "EUR",
+          509.99,
+          false,
+          "€509.99"
+        ],
+        "IQ": [
           "USD",
           500,
           false,
           "$500.00"
         ],
-        "ZM": [
+        "IS": [
           "USD",
-          579.99,
+          619.99,
           false,
-          "USD 579.99"
+          "USD 619.99"
         ],
-        "ZW": [
+        "JM": [
           "USD",
-          569.99,
+          500,
           false,
-          "USD 569.99"
+          "USD 500.00"
+        ],
+        "JO": [
+          "USD",
+          500,
+          false,
+          "$500.00"
+        ],
+        "KG": [
+          "USD",
+          500,
+          false,
+          "USD 500.00"
+        ],
+        "KH": [
+          "USD",
+          549.99,
+          false,
+          "USD 549.99"
+        ],
+        "KN": [
+          "USD",
+          500,
+          false,
+          "USD 500.00"
+        ],
+        "KW": [
+          "USD",
+          500,
+          false,
+          "$500.00"
+        ],
+        "KY": [
+          "USD",
+          500,
+          false,
+          "USD 500.00"
+        ],
+        "LA": [
+          "USD",
+          549.99,
+          false,
+          "USD 549.99"
+        ],
+        "LB": [
+          "USD",
+          500,
+          false,
+          "$500.00"
+        ],
+        "LC": [
+          "USD",
+          500,
+          false,
+          "USD 500.00"
+        ],
+        "LK": [
+          "USD",
+          500,
+          false,
+          "USD 500.00"
+        ],
+        "LR": [
+          "USD",
+          500,
+          false,
+          "USD 500.00"
+        ],
+        "LT": [
+          "EUR",
+          509.99,
+          false,
+          "509,99 €"
+        ],
+        "LY": [
+          "USD",
+          500,
+          false,
+          "$500.00"
         ]
       }
     },
@@ -1615,101 +1864,161 @@
           false,
           "25,00 USD"
         ],
-        "DE": [
+        "GB": [
+          "GBP",
+          20,
+          false,
+          "£20.00"
+        ],
+        "FR": [
           "EUR",
           22,
           false,
           "22,00 €"
         ],
-        "TJ": [
-          "USD",
+        "GR": [
+          "EUR",
           22,
           false,
-          "USD 22.00"
+          "22,00 €"
         ],
-        "TM": [
+        "GT": [
           "USD",
           20,
           false,
           "USD 20.00"
         ],
-        "TN": [
+        "GW": [
+          "USD",
+          20,
+          false,
+          "USD 20.00"
+        ],
+        "GY": [
+          "USD",
+          20,
+          false,
+          "USD 20.00"
+        ],
+        "HN": [
+          "USD",
+          20,
+          false,
+          "USD 20.00"
+        ],
+        "HR": [
+          "EUR",
+          22,
+          false,
+          "22,00 €"
+        ],
+        "IE": [
+          "EUR",
+          22,
+          false,
+          "€22.00"
+        ],
+        "IQ": [
           "USD",
           20,
           false,
           "$20.00"
         ],
-        "TO": [
-          "USD",
-          20,
-          false,
-          "USD 20.00"
-        ],
-        "TT": [
-          "USD",
-          20,
-          false,
-          "USD 20.00"
-        ],
-        "TZ": [
-          "TZS",
-          59900,
-          false,
-          "59,900.00 TZS"
-        ],
-        "UG": [
+        "IS": [
           "USD",
           25,
           false,
           "USD 25.00"
         ],
-        "UY": [
+        "JM": [
           "USD",
           20,
           false,
           "USD 20.00"
         ],
-        "UZ": [
+        "JO": [
+          "USD",
+          20,
+          false,
+          "$20.00"
+        ],
+        "KG": [
           "USD",
           22,
           false,
           "USD 22.00"
         ],
-        "VC": [
+        "KH": [
+          "USD",
+          22,
+          false,
+          "USD 22.00"
+        ],
+        "KN": [
           "USD",
           20,
           false,
           "USD 20.00"
         ],
-        "VG": [
+        "KW": [
+          "USD",
+          20,
+          false,
+          "$20.00"
+        ],
+        "KY": [
           "USD",
           20,
           false,
           "USD 20.00"
         ],
-        "VU": [
+        "LA": [
+          "USD",
+          22,
+          false,
+          "USD 22.00"
+        ],
+        "LB": [
+          "USD",
+          20,
+          false,
+          "$20.00"
+        ],
+        "LC": [
           "USD",
           20,
           false,
           "USD 20.00"
         ],
-        "XK": [
+        "LK": [
+          "USD",
+          20,
+          false,
+          "USD 20.00"
+        ],
+        "LR": [
+          "USD",
+          20,
+          false,
+          "USD 20.00"
+        ],
+        "LT": [
           "EUR",
           22,
           false,
           "22,00 €"
         ],
-        "ZM": [
-          "USD",
-          25,
+        "LU": [
+          "EUR",
+          22,
           false,
-          "USD 25.00"
+          "22,00 €"
         ],
-        "ZW": [
-          "USD",
-          25,
+        "LV": [
+          "EUR",
+          22,
           false,
-          "USD 25.00"
+          "22,00 €"
         ]
       },
       "claude-pro-y": {
@@ -1845,101 +2154,161 @@
           false,
           "249,99 USD"
         ],
-        "DE": [
+        "GB": [
+          "GBP",
+          199.99,
+          false,
+          "£199.99"
+        ],
+        "FR": [
           "EUR",
           249.99,
           false,
           "249,99 €"
         ],
-        "TJ": [
-          "USD",
-          229.99,
+        "GR": [
+          "EUR",
+          249.99,
           false,
-          "USD 229.99"
+          "249,99 €"
         ],
-        "TM": [
+        "GT": [
           "USD",
           214.99,
           false,
           "USD 214.99"
         ],
-        "TN": [
+        "GW": [
+          "USD",
+          214.99,
+          false,
+          "USD 214.99"
+        ],
+        "GY": [
+          "USD",
+          214.99,
+          false,
+          "USD 214.99"
+        ],
+        "HN": [
+          "USD",
+          214.99,
+          false,
+          "USD 214.99"
+        ],
+        "HR": [
+          "EUR",
+          249.99,
+          false,
+          "249,99 €"
+        ],
+        "IE": [
+          "EUR",
+          249.99,
+          false,
+          "€249.99"
+        ],
+        "IQ": [
           "USD",
           214.99,
           false,
           "$214.99"
         ],
-        "TO": [
-          "USD",
-          214.99,
-          false,
-          "USD 214.99"
-        ],
-        "TT": [
-          "USD",
-          214.99,
-          false,
-          "USD 214.99"
-        ],
-        "TZ": [
-          "TZS",
-          599900,
-          false,
-          "599,900.00 TZS"
-        ],
-        "UG": [
+        "IS": [
           "USD",
           249.99,
           false,
           "USD 249.99"
         ],
-        "UY": [
+        "JM": [
           "USD",
           214.99,
           false,
           "USD 214.99"
         ],
-        "UZ": [
+        "JO": [
+          "USD",
+          214.99,
+          false,
+          "$214.99"
+        ],
+        "KG": [
           "USD",
           229.99,
           false,
           "USD 229.99"
         ],
-        "VC": [
+        "KH": [
+          "USD",
+          229.99,
+          false,
+          "USD 229.99"
+        ],
+        "KN": [
           "USD",
           214.99,
           false,
           "USD 214.99"
         ],
-        "VG": [
+        "KW": [
+          "USD",
+          214.99,
+          false,
+          "$214.99"
+        ],
+        "KY": [
           "USD",
           214.99,
           false,
           "USD 214.99"
         ],
-        "VU": [
+        "LA": [
+          "USD",
+          229.99,
+          false,
+          "USD 229.99"
+        ],
+        "LB": [
+          "USD",
+          214.99,
+          false,
+          "$214.99"
+        ],
+        "LC": [
           "USD",
           214.99,
           false,
           "USD 214.99"
         ],
-        "XK": [
+        "LK": [
+          "USD",
+          214.99,
+          false,
+          "USD 214.99"
+        ],
+        "LR": [
+          "USD",
+          214.99,
+          false,
+          "USD 214.99"
+        ],
+        "LT": [
           "EUR",
           249.99,
           false,
           "249,99 €"
         ],
-        "ZM": [
-          "USD",
+        "LU": [
+          "EUR",
           249.99,
           false,
-          "USD 249.99"
+          "249,99 €"
         ],
-        "ZW": [
-          "USD",
+        "LV": [
+          "EUR",
           249.99,
           false,
-          "USD 249.99"
+          "249,99 €"
         ]
       },
       "claude-max-5x": {
@@ -2075,101 +2444,161 @@
           false,
           "149,99 USD"
         ],
-        "DE": [
+        "GB": [
+          "GBP",
+          119.99,
+          false,
+          "£119.99"
+        ],
+        "FR": [
           "EUR",
           149.99,
           false,
           "149,99 €"
         ],
-        "TJ": [
-          "USD",
-          129.99,
+        "GR": [
+          "EUR",
+          149.99,
           false,
-          "USD 129.99"
+          "149,99 €"
         ],
-        "TM": [
+        "GT": [
           "USD",
           124.99,
           false,
           "USD 124.99"
         ],
-        "TN": [
+        "GW": [
+          "USD",
+          124.99,
+          false,
+          "USD 124.99"
+        ],
+        "GY": [
+          "USD",
+          124.99,
+          false,
+          "USD 124.99"
+        ],
+        "HN": [
+          "USD",
+          124.99,
+          false,
+          "USD 124.99"
+        ],
+        "HR": [
+          "EUR",
+          149.99,
+          false,
+          "149,99 €"
+        ],
+        "IE": [
+          "EUR",
+          149.99,
+          false,
+          "€149.99"
+        ],
+        "IQ": [
           "USD",
           124.99,
           false,
           "$124.99"
         ],
-        "TO": [
-          "USD",
-          124.99,
-          false,
-          "USD 124.99"
-        ],
-        "TT": [
-          "USD",
-          124.99,
-          false,
-          "USD 124.99"
-        ],
-        "TZ": [
-          "TZS",
-          349900,
-          false,
-          "349,900.00 TZS"
-        ],
-        "UG": [
+        "IS": [
           "USD",
           149.99,
           false,
           "USD 149.99"
         ],
-        "UY": [
+        "JM": [
           "USD",
           124.99,
           false,
           "USD 124.99"
         ],
-        "UZ": [
+        "JO": [
+          "USD",
+          124.99,
+          false,
+          "$124.99"
+        ],
+        "KG": [
           "USD",
           129.99,
           false,
           "USD 129.99"
         ],
-        "VC": [
+        "KH": [
+          "USD",
+          129.99,
+          false,
+          "USD 129.99"
+        ],
+        "KN": [
           "USD",
           124.99,
           false,
           "USD 124.99"
         ],
-        "VG": [
+        "KW": [
+          "USD",
+          124.99,
+          false,
+          "$124.99"
+        ],
+        "KY": [
           "USD",
           124.99,
           false,
           "USD 124.99"
         ],
-        "VU": [
+        "LA": [
+          "USD",
+          129.99,
+          false,
+          "USD 129.99"
+        ],
+        "LB": [
+          "USD",
+          124.99,
+          false,
+          "$124.99"
+        ],
+        "LC": [
           "USD",
           124.99,
           false,
           "USD 124.99"
         ],
-        "XK": [
+        "LK": [
+          "USD",
+          124.99,
+          false,
+          "USD 124.99"
+        ],
+        "LR": [
+          "USD",
+          124.99,
+          false,
+          "USD 124.99"
+        ],
+        "LT": [
           "EUR",
           149.99,
           false,
           "149,99 €"
         ],
-        "ZM": [
-          "USD",
+        "LU": [
+          "EUR",
           149.99,
           false,
-          "USD 149.99"
+          "149,99 €"
         ],
-        "ZW": [
-          "USD",
+        "LV": [
+          "EUR",
           149.99,
           false,
-          "USD 149.99"
+          "149,99 €"
         ]
       },
       "claude-ultra-20x": {
@@ -2305,101 +2734,161 @@
           false,
           "299,99 USD"
         ],
-        "DE": [
+        "GB": [
+          "GBP",
+          249.99,
+          false,
+          "£249.99"
+        ],
+        "FR": [
           "EUR",
           299.99,
           false,
           "299,99 €"
         ],
-        "TJ": [
-          "USD",
+        "GR": [
+          "EUR",
           299.99,
           false,
-          "USD 299.99"
+          "299,99 €"
         ],
-        "TM": [
+        "GT": [
           "USD",
           249.99,
           false,
           "USD 249.99"
         ],
-        "TN": [
+        "GW": [
+          "USD",
+          249.99,
+          false,
+          "USD 249.99"
+        ],
+        "GY": [
+          "USD",
+          249.99,
+          false,
+          "USD 249.99"
+        ],
+        "HN": [
+          "USD",
+          249.99,
+          false,
+          "USD 249.99"
+        ],
+        "HR": [
+          "EUR",
+          299.99,
+          false,
+          "299,99 €"
+        ],
+        "IE": [
+          "EUR",
+          299.99,
+          false,
+          "€299.99"
+        ],
+        "IQ": [
           "USD",
           249.99,
           false,
           "$249.99"
         ],
-        "TO": [
-          "USD",
-          249.99,
-          false,
-          "USD 249.99"
-        ],
-        "TT": [
-          "USD",
-          249.99,
-          false,
-          "USD 249.99"
-        ],
-        "TZ": [
-          "TZS",
-          699900,
-          false,
-          "699,900.00 TZS"
-        ],
-        "UG": [
+        "IS": [
           "USD",
           299.99,
           false,
           "USD 299.99"
         ],
-        "UY": [
+        "JM": [
           "USD",
           249.99,
           false,
           "USD 249.99"
         ],
-        "UZ": [
+        "JO": [
+          "USD",
+          249.99,
+          false,
+          "$249.99"
+        ],
+        "KG": [
           "USD",
           299.99,
           false,
           "USD 299.99"
         ],
-        "VC": [
+        "KH": [
+          "USD",
+          299.99,
+          false,
+          "USD 299.99"
+        ],
+        "KN": [
           "USD",
           249.99,
           false,
           "USD 249.99"
         ],
-        "VG": [
+        "KW": [
+          "USD",
+          249.99,
+          false,
+          "$249.99"
+        ],
+        "KY": [
           "USD",
           249.99,
           false,
           "USD 249.99"
         ],
-        "VU": [
+        "LA": [
+          "USD",
+          299.99,
+          false,
+          "USD 299.99"
+        ],
+        "LB": [
+          "USD",
+          249.99,
+          false,
+          "$249.99"
+        ],
+        "LC": [
           "USD",
           249.99,
           false,
           "USD 249.99"
         ],
-        "XK": [
+        "LK": [
+          "USD",
+          249.99,
+          false,
+          "USD 249.99"
+        ],
+        "LR": [
+          "USD",
+          249.99,
+          false,
+          "USD 249.99"
+        ],
+        "LT": [
           "EUR",
           299.99,
           false,
           "299,99 €"
         ],
-        "ZM": [
-          "USD",
+        "LU": [
+          "EUR",
           299.99,
           false,
-          "USD 299.99"
+          "299,99 €"
         ],
-        "ZW": [
-          "USD",
+        "LV": [
+          "EUR",
           299.99,
           false,
-          "USD 299.99"
+          "299,99 €"
         ]
       }
     },
@@ -2549,107 +3038,143 @@
           false,
           "4,99 €"
         ],
-        "TD": [
+        "GM": [
           "USD",
           4.99,
           false,
           "USD 4.99"
         ],
-        "TJ": [
-          "USD",
-          4.99,
-          false,
-          "USD 4.99"
-        ],
-        "TM": [
-          "USD",
-          4.99,
-          false,
-          "USD 4.99"
-        ],
-        "TN": [
-          "USD",
-          4.99,
-          false,
-          "$4.99"
-        ],
-        "TT": [
-          "USD",
-          4.99,
-          false,
-          "USD 4.99"
-        ],
-        "TZ": [
-          "TZS",
-          12500,
-          false,
-          "12,500.00 TZS"
-        ],
-        "UG": [
-          "USD",
-          4.99,
-          false,
-          "USD 4.99"
-        ],
-        "UY": [
-          "USD",
-          4.99,
-          false,
-          "USD 4.99"
-        ],
-        "UZ": [
-          "USD",
-          4.99,
-          false,
-          "USD 4.99"
-        ],
-        "VC": [
-          "USD",
-          4.99,
-          false,
-          "USD 4.99"
-        ],
-        "VE": [
-          "USD",
-          4.99,
-          false,
-          "USD 4.99"
-        ],
-        "VG": [
-          "USD",
-          4.99,
-          false,
-          "USD 4.99"
-        ],
-        "VU": [
-          "USD",
-          4.99,
-          false,
-          "USD 4.99"
-        ],
-        "XK": [
+        "GR": [
           "EUR",
-          5.69,
+          4.99,
           false,
-          "5,69 €"
+          "4,99 €"
         ],
-        "YE": [
+        "GT": [
+          "USD",
+          4.99,
+          false,
+          "USD 4.99"
+        ],
+        "GY": [
+          "USD",
+          4.99,
+          false,
+          "USD 4.99"
+        ],
+        "HN": [
+          "USD",
+          4.99,
+          false,
+          "USD 4.99"
+        ],
+        "HR": [
+          "EUR",
+          4.99,
+          false,
+          "4,99 €"
+        ],
+        "IE": [
+          "EUR",
+          4.99,
+          false,
+          "€4.99"
+        ],
+        "IQ": [
           "USD",
           4.99,
           false,
           "$4.99"
         ],
-        "ZM": [
+        "IS": [
           "USD",
           4.99,
           false,
           "USD 4.99"
         ],
-        "ZW": [
+        "JM": [
           "USD",
           4.99,
           false,
           "USD 4.99"
+        ],
+        "JO": [
+          "USD",
+          4.99,
+          false,
+          "$4.99"
+        ],
+        "KG": [
+          "USD",
+          4.99,
+          false,
+          "USD 4.99"
+        ],
+        "KH": [
+          "USD",
+          4.99,
+          false,
+          "USD 4.99"
+        ],
+        "KN": [
+          "USD",
+          4.99,
+          false,
+          "USD 4.99"
+        ],
+        "KW": [
+          "USD",
+          4.99,
+          false,
+          "$4.99"
+        ],
+        "KY": [
+          "USD",
+          4.99,
+          false,
+          "USD 4.99"
+        ],
+        "LA": [
+          "USD",
+          4.99,
+          false,
+          "USD 4.99"
+        ],
+        "LB": [
+          "USD",
+          4.99,
+          false,
+          "$4.99"
+        ],
+        "LC": [
+          "USD",
+          4.99,
+          false,
+          "USD 4.99"
+        ],
+        "LK": [
+          "USD",
+          4.99,
+          false,
+          "USD 4.99"
+        ],
+        "LR": [
+          "USD",
+          4.99,
+          false,
+          "USD 4.99"
+        ],
+        "LT": [
+          "EUR",
+          4.99,
+          false,
+          "4,99 €"
+        ],
+        "LU": [
+          "EUR",
+          4.99,
+          false,
+          "4,99 €"
         ]
       },
       "gemini-pro-m": {
@@ -2803,113 +3328,149 @@
           false,
           "21,99 €"
         ],
-        "TD": [
+        "GM": [
           "USD",
           19.99,
           false,
           "USD 19.99"
         ],
-        "TJ": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "TM": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "TN": [
-          "USD",
-          19.99,
-          false,
-          "$19.99"
-        ],
-        "TO": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "TT": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "TZ": [
-          "TZS",
-          50000,
-          false,
-          "50,000.00 TZS"
-        ],
-        "UG": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "UY": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "UZ": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "VC": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "VE": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "VG": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "VU": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "XK": [
+        "GR": [
           "EUR",
           22.99,
           false,
           "22,99 €"
         ],
-        "YE": [
+        "GT": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "GW": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "GY": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "HN": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "HR": [
+          "EUR",
+          22.99,
+          false,
+          "22,99 €"
+        ],
+        "IE": [
+          "EUR",
+          21.99,
+          false,
+          "€21.99"
+        ],
+        "IQ": [
           "USD",
           19.99,
           false,
           "$19.99"
         ],
-        "ZM": [
+        "IS": [
           "USD",
           19.99,
           false,
           "USD 19.99"
         ],
-        "ZW": [
+        "JM": [
           "USD",
           19.99,
           false,
           "USD 19.99"
+        ],
+        "JO": [
+          "USD",
+          19.99,
+          false,
+          "$19.99"
+        ],
+        "KG": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "KH": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "KN": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "KW": [
+          "USD",
+          19.99,
+          false,
+          "$19.99"
+        ],
+        "KY": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "LA": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "LB": [
+          "USD",
+          19.99,
+          false,
+          "$19.99"
+        ],
+        "LC": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "LK": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "LR": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "LT": [
+          "EUR",
+          21.99,
+          false,
+          "21,99 €"
+        ],
+        "LU": [
+          "EUR",
+          20.99,
+          false,
+          "20,99 €"
         ]
       },
       "gemini-ultra-20x": {
@@ -2991,71 +3552,119 @@
           false,
           "219,99 €"
         ],
-        "TD": [
+        "GM": [
           "USD",
           199.99,
           false,
           "USD 199.99"
         ],
-        "TJ": [
-          "USD",
-          199.99,
-          false,
-          "USD 199.99"
-        ],
-        "TM": [
-          "USD",
-          199.99,
-          false,
-          "USD 199.99"
-        ],
-        "TO": [
-          "USD",
-          199.99,
-          false,
-          "USD 199.99"
-        ],
-        "UG": [
-          "USD",
-          199.99,
-          false,
-          "USD 199.99"
-        ],
-        "VC": [
-          "USD",
-          199.99,
-          false,
-          "USD 199.99"
-        ],
-        "VE": [
-          "USD",
-          199.99,
-          false,
-          "USD 199.99"
-        ],
-        "VG": [
-          "USD",
-          199.99,
-          false,
-          "USD 199.99"
-        ],
-        "VU": [
-          "USD",
-          199.99,
-          false,
-          "USD 199.99"
-        ],
-        "XK": [
+        "GR": [
           "EUR",
-          289.99,
+          229.99,
           false,
-          "289,99 €"
+          "229,99 €"
         ],
-        "ZW": [
+        "GT": [
           "USD",
           199.99,
           false,
           "USD 199.99"
+        ],
+        "GW": [
+          "USD",
+          199.99,
+          false,
+          "USD 199.99"
+        ],
+        "GY": [
+          "USD",
+          199.99,
+          false,
+          "USD 199.99"
+        ],
+        "IE": [
+          "EUR",
+          219.99,
+          false,
+          "€219.99"
+        ],
+        "IQ": [
+          "USD",
+          199.99,
+          false,
+          "$199.99"
+        ],
+        "IS": [
+          "USD",
+          199.99,
+          false,
+          "USD 199.99"
+        ],
+        "JM": [
+          "USD",
+          199.99,
+          false,
+          "USD 199.99"
+        ],
+        "JO": [
+          "USD",
+          199.99,
+          false,
+          "$199.99"
+        ],
+        "KG": [
+          "USD",
+          199.99,
+          false,
+          "USD 199.99"
+        ],
+        "KN": [
+          "USD",
+          199.99,
+          false,
+          "USD 199.99"
+        ],
+        "KW": [
+          "USD",
+          199.99,
+          false,
+          "$199.99"
+        ],
+        "KY": [
+          "USD",
+          199.99,
+          false,
+          "USD 199.99"
+        ],
+        "LC": [
+          "USD",
+          199.99,
+          false,
+          "USD 199.99"
+        ],
+        "LK": [
+          "USD",
+          199.99,
+          false,
+          "USD 199.99"
+        ],
+        "LR": [
+          "USD",
+          199.99,
+          false,
+          "USD 199.99"
+        ],
+        "LT": [
+          "EUR",
+          219.99,
+          false,
+          "219,99 €"
+        ],
+        "LU": [
+          "EUR",
+          209.99,
+          false,
+          "209,99 €"
         ]
       }
     },
@@ -3205,95 +3814,143 @@
           false,
           "10,00 €"
         ],
-        "TD": [
-          "USD",
-          10,
-          false,
-          "USD 10.00"
-        ],
-        "TJ": [
-          "USD",
-          10,
-          false,
-          "USD 10.00"
-        ],
-        "TM": [
-          "USD",
-          10,
-          false,
-          "USD 10.00"
-        ],
-        "TN": [
-          "USD",
-          10,
-          false,
-          "$10.00"
-        ],
-        "TO": [
-          "USD",
-          10,
-          false,
-          "USD 10.00"
-        ],
-        "TT": [
-          "USD",
-          10,
-          false,
-          "USD 10.00"
-        ],
-        "TZ": [
-          "TZS",
-          29900,
-          false,
-          "29,900.00 TZS"
-        ],
-        "UG": [
-          "USD",
-          12,
-          false,
-          "USD 12.00"
-        ],
-        "UY": [
-          "USD",
-          10,
-          false,
-          "USD 10.00"
-        ],
-        "UZ": [
-          "USD",
-          10,
-          false,
-          "USD 10.00"
-        ],
-        "VC": [
-          "USD",
-          10,
-          false,
-          "USD 10.00"
-        ],
-        "VG": [
-          "USD",
-          10,
-          false,
-          "USD 10.00"
-        ],
-        "VU": [
-          "USD",
-          10,
-          false,
-          "USD 10.00"
-        ],
-        "XK": [
+        "FR": [
           "EUR",
           10,
           false,
           "10,00 €"
         ],
-        "ZM": [
+        "GR": [
+          "EUR",
+          10,
+          false,
+          "10,00 €"
+        ],
+        "GT": [
+          "USD",
+          10,
+          false,
+          "USD 10.00"
+        ],
+        "GW": [
+          "USD",
+          10,
+          false,
+          "USD 10.00"
+        ],
+        "GY": [
+          "USD",
+          10,
+          false,
+          "USD 10.00"
+        ],
+        "HN": [
+          "USD",
+          10,
+          false,
+          "USD 10.00"
+        ],
+        "HR": [
+          "EUR",
+          10,
+          false,
+          "10,00 €"
+        ],
+        "IE": [
+          "EUR",
+          10,
+          false,
+          "€10.00"
+        ],
+        "IS": [
           "USD",
           12,
           false,
           "USD 12.00"
+        ],
+        "JM": [
+          "USD",
+          10,
+          false,
+          "USD 10.00"
+        ],
+        "JO": [
+          "USD",
+          10,
+          false,
+          "$10.00"
+        ],
+        "KG": [
+          "USD",
+          10,
+          false,
+          "USD 10.00"
+        ],
+        "KH": [
+          "USD",
+          10,
+          false,
+          "USD 10.00"
+        ],
+        "KN": [
+          "USD",
+          10,
+          false,
+          "USD 10.00"
+        ],
+        "KW": [
+          "USD",
+          10,
+          false,
+          "$10.00"
+        ],
+        "KY": [
+          "USD",
+          10,
+          false,
+          "USD 10.00"
+        ],
+        "LA": [
+          "USD",
+          10,
+          false,
+          "USD 10.00"
+        ],
+        "LC": [
+          "USD",
+          10,
+          false,
+          "USD 10.00"
+        ],
+        "LK": [
+          "USD",
+          10,
+          false,
+          "USD 10.00"
+        ],
+        "LR": [
+          "USD",
+          10,
+          false,
+          "USD 10.00"
+        ],
+        "LT": [
+          "EUR",
+          10,
+          false,
+          "10,00 €"
+        ],
+        "LU": [
+          "EUR",
+          10,
+          false,
+          "10,00 €"
+        ],
+        "LV": [
+          "EUR",
+          10,
+          false,
+          "10,00 €"
         ]
       },
       "grok-super-m": {
@@ -3447,95 +4104,143 @@
           false,
           "35,00 €"
         ],
-        "TD": [
-          "USD",
-          30,
-          false,
-          "USD 30.00"
-        ],
-        "TJ": [
-          "USD",
-          30,
-          false,
-          "USD 30.00"
-        ],
-        "TM": [
-          "USD",
-          30,
-          false,
-          "USD 30.00"
-        ],
-        "TN": [
-          "USD",
-          30,
-          false,
-          "$30.00"
-        ],
-        "TO": [
-          "USD",
-          30,
-          false,
-          "USD 30.00"
-        ],
-        "TT": [
-          "USD",
-          30,
-          false,
-          "USD 30.00"
-        ],
-        "TZ": [
-          "TZS",
-          89900,
-          false,
-          "89,900.00 TZS"
-        ],
-        "UG": [
-          "USD",
-          40,
-          false,
-          "USD 40.00"
-        ],
-        "UY": [
-          "USD",
-          30,
-          false,
-          "USD 30.00"
-        ],
-        "UZ": [
-          "USD",
-          30,
-          false,
-          "USD 30.00"
-        ],
-        "VC": [
-          "USD",
-          30,
-          false,
-          "USD 30.00"
-        ],
-        "VG": [
-          "USD",
-          30,
-          false,
-          "USD 30.00"
-        ],
-        "VU": [
-          "USD",
-          30,
-          false,
-          "USD 30.00"
-        ],
-        "XK": [
+        "FR": [
           "EUR",
           35,
           false,
           "35,00 €"
         ],
-        "ZM": [
+        "GR": [
+          "EUR",
+          35,
+          false,
+          "35,00 €"
+        ],
+        "GT": [
+          "USD",
+          30,
+          false,
+          "USD 30.00"
+        ],
+        "GW": [
+          "USD",
+          30,
+          false,
+          "USD 30.00"
+        ],
+        "GY": [
+          "USD",
+          30,
+          false,
+          "USD 30.00"
+        ],
+        "HN": [
+          "USD",
+          30,
+          false,
+          "USD 30.00"
+        ],
+        "HR": [
+          "EUR",
+          35,
+          false,
+          "35,00 €"
+        ],
+        "IE": [
+          "EUR",
+          35,
+          false,
+          "€35.00"
+        ],
+        "IS": [
           "USD",
           40,
           false,
           "USD 40.00"
+        ],
+        "JM": [
+          "USD",
+          30,
+          false,
+          "USD 30.00"
+        ],
+        "JO": [
+          "USD",
+          30,
+          false,
+          "$30.00"
+        ],
+        "KG": [
+          "USD",
+          30,
+          false,
+          "USD 30.00"
+        ],
+        "KH": [
+          "USD",
+          30,
+          false,
+          "USD 30.00"
+        ],
+        "KN": [
+          "USD",
+          30,
+          false,
+          "USD 30.00"
+        ],
+        "KW": [
+          "USD",
+          30,
+          false,
+          "$30.00"
+        ],
+        "KY": [
+          "USD",
+          30,
+          false,
+          "USD 30.00"
+        ],
+        "LA": [
+          "USD",
+          30,
+          false,
+          "USD 30.00"
+        ],
+        "LC": [
+          "USD",
+          30,
+          false,
+          "USD 30.00"
+        ],
+        "LK": [
+          "USD",
+          30,
+          false,
+          "USD 30.00"
+        ],
+        "LR": [
+          "USD",
+          30,
+          false,
+          "USD 30.00"
+        ],
+        "LT": [
+          "EUR",
+          35,
+          false,
+          "35,00 €"
+        ],
+        "LU": [
+          "EUR",
+          35,
+          false,
+          "35,00 €"
+        ],
+        "LV": [
+          "EUR",
+          35,
+          false,
+          "35,00 €"
         ]
       },
       "grok-super-y": {
@@ -3689,47 +4394,101 @@
           false,
           "349,00 €"
         ],
-        "TJ": [
+        "FR": [
+          "EUR",
+          349,
+          false,
+          "349,00 €"
+        ],
+        "GR": [
+          "EUR",
+          349,
+          false,
+          "349,00 €"
+        ],
+        "GT": [
           "USD",
           300,
           false,
           "USD 300.00"
         ],
-        "TM": [
+        "GY": [
           "USD",
           300,
           false,
           "USD 300.00"
         ],
-        "TT": [
+        "HN": [
           "USD",
           300,
           false,
           "USD 300.00"
         ],
-        "TZ": [
-          "TZS",
-          899900,
+        "HR": [
+          "EUR",
+          349,
           false,
-          "899,900.00 TZS"
+          "349,00 €"
         ],
-        "UG": [
+        "IE": [
+          "EUR",
+          349,
+          false,
+          "€349.00"
+        ],
+        "IS": [
           "USD",
           400,
           false,
           "USD 400.00"
         ],
-        "UY": [
+        "JM": [
           "USD",
           300,
           false,
           "USD 300.00"
         ],
-        "UZ": [
+        "KG": [
           "USD",
           300,
           false,
           "USD 300.00"
+        ],
+        "KH": [
+          "USD",
+          300,
+          false,
+          "USD 300.00"
+        ],
+        "KW": [
+          "USD",
+          300,
+          false,
+          "$300.00"
+        ],
+        "LK": [
+          "USD",
+          300,
+          false,
+          "USD 300.00"
+        ],
+        "LT": [
+          "EUR",
+          349,
+          false,
+          "349,00 €"
+        ],
+        "LU": [
+          "EUR",
+          349,
+          false,
+          "349,00 €"
+        ],
+        "LV": [
+          "EUR",
+          349,
+          false,
+          "349,00 €"
         ]
       },
       "grok-plus-m": {
@@ -3883,95 +4642,143 @@
           false,
           "100,00 €"
         ],
-        "TD": [
-          "USD",
-          100,
-          false,
-          "USD 100.00"
-        ],
-        "TJ": [
-          "USD",
-          100,
-          false,
-          "USD 100.00"
-        ],
-        "TM": [
-          "USD",
-          100,
-          false,
-          "USD 100.00"
-        ],
-        "TN": [
-          "USD",
-          100,
-          false,
-          "$100.00"
-        ],
-        "TO": [
-          "USD",
-          100,
-          false,
-          "USD 100.00"
-        ],
-        "TT": [
-          "USD",
-          100,
-          false,
-          "USD 100.00"
-        ],
-        "TZ": [
-          "TZS",
-          299900,
-          false,
-          "299,900.00 TZS"
-        ],
-        "UG": [
-          "USD",
-          119,
-          false,
-          "USD 119.00"
-        ],
-        "UY": [
-          "USD",
-          100,
-          false,
-          "USD 100.00"
-        ],
-        "UZ": [
-          "USD",
-          100,
-          false,
-          "USD 100.00"
-        ],
-        "VC": [
-          "USD",
-          100,
-          false,
-          "USD 100.00"
-        ],
-        "VG": [
-          "USD",
-          100,
-          false,
-          "USD 100.00"
-        ],
-        "VU": [
-          "USD",
-          100,
-          false,
-          "USD 100.00"
-        ],
-        "XK": [
+        "FR": [
           "EUR",
           100,
           false,
           "100,00 €"
         ],
-        "ZM": [
+        "GR": [
+          "EUR",
+          100,
+          false,
+          "100,00 €"
+        ],
+        "GT": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "GW": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "GY": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "HN": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "HR": [
+          "EUR",
+          100,
+          false,
+          "100,00 €"
+        ],
+        "IE": [
+          "EUR",
+          100,
+          false,
+          "€100.00"
+        ],
+        "IS": [
           "USD",
           119,
           false,
           "USD 119.00"
+        ],
+        "JM": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "JO": [
+          "USD",
+          100,
+          false,
+          "$100.00"
+        ],
+        "KG": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "KH": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "KN": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "KW": [
+          "USD",
+          100,
+          false,
+          "$100.00"
+        ],
+        "KY": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "LA": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "LC": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "LK": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "LR": [
+          "USD",
+          100,
+          false,
+          "USD 100.00"
+        ],
+        "LT": [
+          "EUR",
+          100,
+          false,
+          "100,00 €"
+        ],
+        "LU": [
+          "EUR",
+          100,
+          false,
+          "100,00 €"
+        ],
+        "LV": [
+          "EUR",
+          100,
+          false,
+          "100,00 €"
         ]
       },
       "grok-heavy-m": {
@@ -4125,53 +4932,131 @@
           false,
           "349,00 €"
         ],
-        "TJ": [
-          "USD",
-          300,
-          false,
-          "USD 300.00"
-        ],
-        "TT": [
-          "USD",
-          300,
-          false,
-          "USD 300.00"
-        ],
-        "TZ": [
-          "TZS",
-          899900,
-          false,
-          "899,900.00 TZS"
-        ],
-        "UG": [
-          "USD",
-          400,
-          false,
-          "USD 400.00"
-        ],
-        "UY": [
-          "USD",
-          300,
-          false,
-          "USD 300.00"
-        ],
-        "UZ": [
-          "USD",
-          300,
-          false,
-          "USD 300.00"
-        ],
-        "XK": [
+        "FR": [
           "EUR",
           349,
           false,
           "349,00 €"
         ],
-        "ZM": [
+        "GR": [
+          "EUR",
+          349,
+          false,
+          "349,00 €"
+        ],
+        "GT": [
+          "USD",
+          300,
+          false,
+          "USD 300.00"
+        ],
+        "GY": [
+          "USD",
+          300,
+          false,
+          "USD 300.00"
+        ],
+        "HN": [
+          "USD",
+          300,
+          false,
+          "USD 300.00"
+        ],
+        "HR": [
+          "EUR",
+          349,
+          false,
+          "349,00 €"
+        ],
+        "IE": [
+          "EUR",
+          349,
+          false,
+          "€349.00"
+        ],
+        "IS": [
           "USD",
           400,
           false,
           "USD 400.00"
+        ],
+        "JM": [
+          "USD",
+          300,
+          false,
+          "USD 300.00"
+        ],
+        "JO": [
+          "USD",
+          300,
+          false,
+          "$300.00"
+        ],
+        "KG": [
+          "USD",
+          300,
+          false,
+          "USD 300.00"
+        ],
+        "KH": [
+          "USD",
+          300,
+          false,
+          "USD 300.00"
+        ],
+        "KW": [
+          "USD",
+          300,
+          false,
+          "$300.00"
+        ],
+        "KY": [
+          "USD",
+          300,
+          false,
+          "USD 300.00"
+        ],
+        "LA": [
+          "USD",
+          300,
+          false,
+          "USD 300.00"
+        ],
+        "LC": [
+          "USD",
+          300,
+          false,
+          "USD 300.00"
+        ],
+        "LK": [
+          "USD",
+          300,
+          false,
+          "USD 300.00"
+        ],
+        "LR": [
+          "USD",
+          300,
+          false,
+          "USD 300.00"
+        ],
+        "LT": [
+          "EUR",
+          349,
+          false,
+          "349,00 €"
+        ],
+        "LU": [
+          "EUR",
+          349,
+          false,
+          "349,00 €"
+        ],
+        "LV": [
+          "EUR",
+          349,
+          false,
+          "349,00 €"
         ]
       }
     },
@@ -4321,113 +5206,161 @@
           false,
           "£20.00"
         ],
-        "TD": [
-          "USD",
-          20,
-          false,
-          "USD 20.00"
-        ],
-        "TJ": [
-          "USD",
-          22,
-          false,
-          "USD 22.00"
-        ],
-        "TM": [
-          "USD",
-          20,
-          false,
-          "USD 20.00"
-        ],
-        "TN": [
-          "USD",
-          20,
-          false,
-          "$20.00"
-        ],
-        "TO": [
-          "USD",
-          20,
-          false,
-          "USD 20.00"
-        ],
-        "TT": [
-          "USD",
-          20,
-          false,
-          "USD 20.00"
-        ],
-        "TZ": [
-          "TZS",
-          59900,
-          false,
-          "59,900.00 TZS"
-        ],
-        "UG": [
-          "USD",
-          25,
-          false,
-          "USD 25.00"
-        ],
-        "UY": [
-          "USD",
-          20,
-          false,
-          "USD 20.00"
-        ],
-        "UZ": [
-          "USD",
-          22,
-          false,
-          "USD 22.00"
-        ],
-        "VC": [
-          "USD",
-          20,
-          false,
-          "USD 20.00"
-        ],
-        "VE": [
-          "USD",
-          20,
-          false,
-          "USD 20.00"
-        ],
-        "VG": [
-          "USD",
-          20,
-          false,
-          "USD 20.00"
-        ],
-        "VU": [
-          "USD",
-          20,
-          false,
-          "USD 20.00"
-        ],
-        "XK": [
+        "DE": [
           "EUR",
           22,
           false,
           "22,00 €"
         ],
-        "YE": [
+        "FR": [
+          "EUR",
+          22,
+          false,
+          "22,00 €"
+        ],
+        "GM": [
+          "USD",
+          20,
+          false,
+          "USD 20.00"
+        ],
+        "GR": [
+          "EUR",
+          22,
+          false,
+          "22,00 €"
+        ],
+        "GT": [
+          "USD",
+          20,
+          false,
+          "USD 20.00"
+        ],
+        "GW": [
+          "USD",
+          20,
+          false,
+          "USD 20.00"
+        ],
+        "GY": [
+          "USD",
+          20,
+          false,
+          "USD 20.00"
+        ],
+        "HN": [
+          "USD",
+          20,
+          false,
+          "USD 20.00"
+        ],
+        "HR": [
+          "EUR",
+          22,
+          false,
+          "22,00 €"
+        ],
+        "IE": [
+          "EUR",
+          22,
+          false,
+          "€22.00"
+        ],
+        "IQ": [
           "USD",
           20,
           false,
           "$20.00"
         ],
-        "ZM": [
+        "IS": [
           "USD",
           25,
           false,
           "USD 25.00"
         ],
-        "ZW": [
+        "JM": [
           "USD",
-          25,
+          20,
           false,
-          "USD 25.00"
+          "USD 20.00"
+        ],
+        "JO": [
+          "USD",
+          20,
+          false,
+          "$20.00"
+        ],
+        "KG": [
+          "USD",
+          22,
+          false,
+          "USD 22.00"
+        ],
+        "KH": [
+          "USD",
+          22,
+          false,
+          "USD 22.00"
+        ],
+        "KN": [
+          "USD",
+          20,
+          false,
+          "USD 20.00"
+        ],
+        "KW": [
+          "USD",
+          20,
+          false,
+          "$20.00"
+        ],
+        "KY": [
+          "USD",
+          20,
+          false,
+          "USD 20.00"
+        ],
+        "LA": [
+          "USD",
+          22,
+          false,
+          "USD 22.00"
+        ],
+        "LB": [
+          "USD",
+          20,
+          false,
+          "$20.00"
+        ],
+        "LC": [
+          "USD",
+          20,
+          false,
+          "USD 20.00"
+        ],
+        "LK": [
+          "USD",
+          20,
+          false,
+          "USD 20.00"
+        ],
+        "LR": [
+          "USD",
+          20,
+          false,
+          "USD 20.00"
+        ],
+        "LT": [
+          "EUR",
+          22,
+          false,
+          "22,00 €"
+        ],
+        "LU": [
+          "EUR",
+          22,
+          false,
+          "22,00 €"
         ]
       },
       "pplx-pro-y": {
@@ -4575,107 +5508,161 @@
           false,
           "£200.00"
         ],
-        "TD": [
+        "DE": [
+          "EUR",
+          229,
+          false,
+          "229,00 €"
+        ],
+        "FR": [
+          "EUR",
+          229,
+          false,
+          "229,00 €"
+        ],
+        "GM": [
           "USD",
           200,
           false,
           "USD 200.00"
         ],
-        "TJ": [
+        "GR": [
+          "EUR",
+          229,
+          false,
+          "229,00 €"
+        ],
+        "GT": [
           "USD",
           200,
           false,
           "USD 200.00"
         ],
-        "TM": [
+        "GW": [
           "USD",
           200,
           false,
           "USD 200.00"
         ],
-        "TN": [
+        "GY": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "HN": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "HR": [
+          "EUR",
+          229,
+          false,
+          "229,00 €"
+        ],
+        "IE": [
+          "EUR",
+          229,
+          false,
+          "€229.00"
+        ],
+        "IQ": [
           "USD",
           200,
           false,
           "$200.00"
         ],
-        "TO": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "TT": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "TZ": [
-          "TZS",
-          599900,
-          false,
-          "599,900.00 TZS"
-        ],
-        "UG": [
+        "IS": [
           "USD",
           250,
           false,
           "USD 250.00"
         ],
-        "UY": [
+        "JM": [
           "USD",
           200,
           false,
           "USD 200.00"
         ],
-        "UZ": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "VC": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "VE": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "VG": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "VU": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "YE": [
+        "JO": [
           "USD",
           200,
           false,
           "$200.00"
         ],
-        "ZM": [
+        "KG": [
           "USD",
-          250,
+          200,
           false,
-          "USD 250.00"
+          "USD 200.00"
         ],
-        "ZW": [
+        "KH": [
           "USD",
-          250,
+          200,
           false,
-          "USD 250.00"
+          "USD 200.00"
+        ],
+        "KN": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "KW": [
+          "USD",
+          200,
+          false,
+          "$200.00"
+        ],
+        "KY": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "LA": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "LB": [
+          "USD",
+          200,
+          false,
+          "$200.00"
+        ],
+        "LC": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "LK": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "LR": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "LT": [
+          "EUR",
+          229,
+          false,
+          "229,00 €"
+        ],
+        "LU": [
+          "EUR",
+          229,
+          false,
+          "229,00 €"
         ]
       },
       "pplx-max-m": {
@@ -4811,47 +5798,119 @@
           false,
           "£200.00"
         ],
-        "TJ": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "TZ": [
-          "TZS",
-          599900,
-          false,
-          "599,900.00 TZS"
-        ],
-        "UY": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "UZ": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "VE": [
-          "USD",
-          200,
-          false,
-          "USD 200.00"
-        ],
-        "XK": [
+        "DE": [
           "EUR",
           229,
           false,
           "229,00 €"
         ],
-        "YE": [
+        "FR": [
+          "EUR",
+          229,
+          false,
+          "229,00 €"
+        ],
+        "GR": [
+          "EUR",
+          229,
+          false,
+          "229,00 €"
+        ],
+        "GT": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "HN": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "HR": [
+          "EUR",
+          229,
+          false,
+          "229,00 €"
+        ],
+        "IE": [
+          "EUR",
+          229,
+          false,
+          "€229.00"
+        ],
+        "IQ": [
           "USD",
           200,
           false,
           "$200.00"
+        ],
+        "IS": [
+          "USD",
+          250,
+          false,
+          "USD 250.00"
+        ],
+        "JM": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "JO": [
+          "USD",
+          200,
+          false,
+          "$200.00"
+        ],
+        "KG": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "KH": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "KW": [
+          "USD",
+          200,
+          false,
+          "$200.00"
+        ],
+        "KY": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "LB": [
+          "USD",
+          200,
+          false,
+          "$200.00"
+        ],
+        "LK": [
+          "USD",
+          200,
+          false,
+          "USD 200.00"
+        ],
+        "LT": [
+          "EUR",
+          229,
+          false,
+          "229,00 €"
+        ],
+        "LU": [
+          "EUR",
+          229,
+          false,
+          "229,00 €"
         ]
       }
     },
@@ -4977,35 +6036,59 @@
           false,
           "£4.99"
         ],
-        "TJ": [
-          "USD",
-          4.99,
-          false,
-          "USD 4.99"
-        ],
-        "UG": [
-          "USD",
-          5.99,
-          false,
-          "USD 5.99"
-        ],
-        "UZ": [
-          "USD",
-          4.99,
-          false,
-          "USD 4.99"
-        ],
-        "XK": [
+        "DE": [
           "EUR",
           5.99,
           false,
           "5,99 €"
         ],
-        "ZW": [
+        "GR": [
+          "EUR",
+          5.99,
+          false,
+          "5,99 €"
+        ],
+        "HR": [
+          "EUR",
+          5.99,
+          false,
+          "5,99 €"
+        ],
+        "IE": [
+          "EUR",
+          5.99,
+          false,
+          "€5.99"
+        ],
+        "IS": [
           "USD",
           5.99,
           false,
           "USD 5.99"
+        ],
+        "KG": [
+          "USD",
+          4.99,
+          false,
+          "USD 4.99"
+        ],
+        "KH": [
+          "USD",
+          4.99,
+          false,
+          "USD 4.99"
+        ],
+        "LT": [
+          "EUR",
+          5.99,
+          false,
+          "5,99 €"
+        ],
+        "LU": [
+          "EUR",
+          5.99,
+          false,
+          "5,99 €"
         ]
       },
       "poe-std-m": {
@@ -5129,35 +6212,59 @@
           false,
           "£19.99"
         ],
-        "TJ": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "UG": [
-          "USD",
-          22.99,
-          false,
-          "USD 22.99"
-        ],
-        "UZ": [
-          "USD",
-          19.99,
-          false,
-          "USD 19.99"
-        ],
-        "XK": [
+        "DE": [
           "EUR",
           22.99,
           false,
           "22,99 €"
         ],
-        "ZW": [
+        "GR": [
+          "EUR",
+          22.99,
+          false,
+          "22,99 €"
+        ],
+        "HR": [
+          "EUR",
+          22.99,
+          false,
+          "22,99 €"
+        ],
+        "IE": [
+          "EUR",
+          22.99,
+          false,
+          "€22.99"
+        ],
+        "IS": [
           "USD",
           22.99,
           false,
           "USD 22.99"
+        ],
+        "KG": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "KH": [
+          "USD",
+          19.99,
+          false,
+          "USD 19.99"
+        ],
+        "LT": [
+          "EUR",
+          22.99,
+          false,
+          "22,99 €"
+        ],
+        "LU": [
+          "EUR",
+          22.99,
+          false,
+          "22,99 €"
         ]
       },
       "poe-std-y": {
@@ -5281,35 +6388,59 @@
           false,
           "£199.99"
         ],
-        "TJ": [
-          "USD",
-          199.99,
-          false,
-          "USD 199.99"
-        ],
-        "UG": [
-          "USD",
-          229.99,
-          false,
-          "USD 229.99"
-        ],
-        "UZ": [
-          "USD",
-          199.99,
-          false,
-          "USD 199.99"
-        ],
-        "XK": [
+        "DE": [
           "EUR",
           229.99,
           false,
           "229,99 €"
         ],
-        "ZW": [
+        "GR": [
+          "EUR",
+          229.99,
+          false,
+          "229,99 €"
+        ],
+        "HR": [
+          "EUR",
+          229.99,
+          false,
+          "229,99 €"
+        ],
+        "IE": [
+          "EUR",
+          229.99,
+          false,
+          "€229.99"
+        ],
+        "IS": [
           "USD",
           229.99,
           false,
           "USD 229.99"
+        ],
+        "KG": [
+          "USD",
+          199.99,
+          false,
+          "USD 199.99"
+        ],
+        "KH": [
+          "USD",
+          199.99,
+          false,
+          "USD 199.99"
+        ],
+        "LT": [
+          "EUR",
+          229.99,
+          false,
+          "229,99 €"
+        ],
+        "LU": [
+          "EUR",
+          229.99,
+          false,
+          "229,99 €"
         ]
       }
     }
@@ -6637,6 +7768,15 @@
           "sourceType": "VERIFIED_RECEIPT",
           "note": "实测核验：菲区 Plus 含税标价 ₱1,100.00（含 12% 数字 VAT），支付页改填美国免税州成功去税，实付 ₱982.15 PHP（立省 ₱117.85）"
         },
+        "CL": {
+          "cur": "CLP",
+          "listed": 19990,
+          "taxAtCheckout": false,
+          "vatIncludedPct": 19,
+          "taxFreeTotal": 16798.32,
+          "sourceType": "VERIFIED_RECEIPT",
+          "note": "智利实测：Plus 官方含 19% IVA 标价 19,990 CLP（约 $19.67），填 RUT 税号或美免税州去税后实付 16,798 CLP（约 $16.53，折合约 ¥110~119）"
+        },
         "CA": {
           "cur": "USD",
           "listed": 20,
@@ -6753,6 +7893,23 @@
           "taxFreeTotal": 500,
           "sourceType": "VERIFIED_RECEIPT",
           "note": "OpenAI 官网 Pro 500 标价 $500.00（免税州实付 $500.00）"
+        },
+        "BR": {
+          "cur": "BRL",
+          "listed": 2599.9,
+          "taxAtCheckout": false,
+          "taxFreeTotal": 2599.9,
+          "sourceType": "VERIFIED_RECEIPT",
+          "note": "巴西 App Store 官方直采标价 R$2,599.90，折合约 $441 美元 / ¥2,945~3,189 元，全球官方挂牌最低"
+        },
+        "CL": {
+          "cur": "CLP",
+          "listed": 509990,
+          "taxAtCheckout": false,
+          "vatIncludedPct": 19,
+          "taxFreeTotal": 428563,
+          "sourceType": "VERIFIED_RECEIPT",
+          "note": "智利官方挂牌 509,990 CLP；填智利 RUT 商业税号或免税州去税 19% 后净价 428,563 CLP，折合约 $421.7 美元，换算人民币精准对应市场正规代充底价 ¥3,040 元！"
         }
       }
     },
@@ -6795,6 +7952,15 @@
           "taxFreeTotal": 200,
           "sourceType": "VERIFIED_RECEIPT",
           "note": "Anthropic 官网 Ultra 官方价 $200.00/月（比美区苹果内购 $249.99 省 20% 苹果税）"
+        },
+        "CL": {
+          "cur": "CLP",
+          "listed": 299990,
+          "taxAtCheckout": false,
+          "vatIncludedPct": 19,
+          "taxFreeTotal": 252092.4,
+          "sourceType": "VERIFIED_RECEIPT",
+          "note": "智利官方挂牌 299,990 CLP；RUT 去税后 252,092 CLP (约 $248 美元)"
         }
       }
     },
