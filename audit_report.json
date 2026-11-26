@@ -1,0 +1,28 @@
+{
+  "testedAt": "2026-11-26T01:29:56.868Z",
+  "summary": {
+    "total": 1,
+    "passCount": 0,
+    "fakeCount": 1,
+    "chargebackCount": 0,
+    "deadCount": 0
+  },
+  "results": [
+    {
+      "index": 1,
+      "email": "obie56@aczczc3214.org",
+      "userId": "user-GTG8ObcusXg26jjh2OUbtvK1",
+      "accountId": "7326ba48-f0d1-4a94-8352-fa0886b99bed",
+      "planType": "free",
+      "hasActiveSubscription": false,
+      "isDelinquent": false,
+      "willRenew": null,
+      "expiresAtStr": "N/A",
+      "remainingDays": null,
+      "verdict": "FAKE_FREE_ACCOUNT",
+      "verdictText": "❌ 假号欺诈 (当前实为免费 Free 账号，无 Plus 权益)",
+      "isPass": false,
+      "testedAt": "2026-11-26T01:29:56.866Z"
+    }
+  ]
+}

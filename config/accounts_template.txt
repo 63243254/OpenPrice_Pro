@@ -1,0 +1,14 @@
+# ChatGPT 成品号导入模版 (accounts_to_verify.txt)
+# 支持多种号商常见交号格式（一行一个账号，支持注释以 # 开头）：
+#
+# 格式 1：纯 SessionToken (推荐，最稳定)
+# eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0...
+#
+# 格式 2：账号----密码----SessionToken (常见号商格式)
+# user1@example.com----Password123----eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0...
+#
+# 格式 3：账号:密码:SessionToken
+# user2@example.com:Password123:eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0...
+#
+# 格式 4：JSON 会话文件路径 (可直接指定单个 JSON 文件)
+# D:/REA/portal/session.json

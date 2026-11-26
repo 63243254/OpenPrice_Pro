@@ -8,6 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "update-data": "node scripts/update-prices.mjs",
+    "verify-accounts": "node scripts/verify-plus-accounts.mjs --file config/accounts_to_verify.txt",
+    "scan-tax-drop": "node scripts/residential-tax-drop-scanner.mjs",
     "start": "node scripts/server.mjs"
   },
   "dependencies": {

@@ -14,7 +14,7 @@
     "liveIapProbedCount": 963,
     "liveStorefrontsHit": 52,
     "appleTargetStorefronts": 173,
-    "gplayRangeHits": 204,
+    "gplayRangeHits": 203,
     "gplayExactSkuHits": 0,
     "webStripeLiveProbedCount": 0,
     "webVerifiedReceiptsCount": 40,
@@ -6983,9 +6983,9 @@
       },
       "KR": {
         "currency": "KRW",
-        "minAmount": 8500,
+        "minAmount": 9900,
         "maxAmount": 480000,
-        "rawRange": "₩8,500 - ₩480,000"
+        "rawRange": "₩9,900 - ₩480,000"
       },
       "HK": {
         "currency": "HKD",
@@ -7046,12 +7046,6 @@
         "minAmount": 93.99,
         "maxAmount": 41999.9,
         "rawRange": "R 93,99 - R 41 999,90"
-      },
-      "KE": {
-        "currency": "USD",
-        "minAmount": 800,
-        "maxAmount": 335000,
-        "rawRange": "Ksh 800.00 - Ksh 335,000.00"
       },
       "GH": {
         "currency": "GHS",
@@ -7183,9 +7177,9 @@
       },
       "BD": {
         "currency": "BDT",
-        "minAmount": 700,
-        "maxAmount": 281000,
-        "rawRange": "BDT 700.00 - BDT 281,000.00"
+        "minAmount": 2700,
+        "maxAmount": 33750,
+        "rawRange": "BDT 2,700.00 - BDT 33,750.00"
       },
       "JP": {
         "currency": "JPY",
@@ -7443,9 +7437,9 @@
       },
       "ID": {
         "currency": "IDR",
-        "minAmount": 80000,
-        "maxAmount": 4390000,
-        "rawRange": "Rp 80.000 - Rp 4.390.000"
+        "minAmount": 16000,
+        "maxAmount": 1390000,
+        "rawRange": "Rp 16.000 - Rp 1.390.000"
       },
       "VN": {
         "currency": "VND",

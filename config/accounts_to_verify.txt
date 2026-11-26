@@ -1,0 +1,13 @@
+# =========================================================================
+# ChatGPT 成品号批量待检列表 (accounts_to_verify.txt)
+# 将号商发给您的账号列表直接整批粘贴到下方（一行一个，支持多种常见交号格式）
+# =========================================================================
+
+# 示例 1: 从 session.json 导入
+D:/REA/portal/session.json
+
+# 示例 2: 常见格式 email:password:sessionToken (号商常见格式)
+# test_buyer_01@outlook.com:Pass123456:eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..abc123mocktoken
+
+# 示例 3: 纯 sessionToken
+# eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..mocktoken

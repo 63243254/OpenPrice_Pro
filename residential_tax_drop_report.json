@@ -1,0 +1,157 @@
+{
+  "testedAt": "2026-11-25T11:33:19.850Z",
+  "proxyHost": "gw.dataimpulse.com:823",
+  "reports": [
+    {
+      "iso": "ph",
+      "name": "菲律宾",
+      "currency": "PHP",
+      "postal": "1000",
+      "residentialIp": "136.158.49.225",
+      "city": "Bacoor",
+      "isp": "AS17639 Converge ICT Solutions Inc.",
+      "status": "PROXY_READY_AWAITING_SESSION",
+      "note": "成功建立 菲律宾 原生家庭宽带出口连接，随时可执行挂载算税探测"
+    },
+    {
+      "iso": "cl",
+      "name": "智利",
+      "currency": "CLP",
+      "postal": "8320000",
+      "residentialIp": "181.162.178.54",
+      "city": "Rancagua",
+      "isp": "AS7418 TELEFÓNICA CHILE S.A.",
+      "status": "PROXY_READY_AWAITING_SESSION",
+      "note": "成功建立 智利 原生家庭宽带出口连接，随时可执行挂载算税探测"
+    },
+    {
+      "iso": "br",
+      "name": "巴西",
+      "currency": "BRL",
+      "postal": "01001-000",
+      "residentialIp": "189.99.108.190",
+      "city": "Cariacica",
+      "isp": "AS26599 TELEFÔNICA BRASIL S.A",
+      "status": "PROXY_READY_AWAITING_SESSION",
+      "note": "成功建立 巴西 原生家庭宽带出口连接，随时可执行挂载算税探测"
+    },
+    {
+      "iso": "jp",
+      "name": "日本",
+      "currency": "JPY",
+      "postal": "100-0001",
+      "residentialIp": "153.207.51.67",
+      "city": "Hamamatsu",
+      "isp": "AS4713 NTT DOCOMO BUSINESS,Inc.",
+      "status": "PROXY_READY_AWAITING_SESSION",
+      "note": "成功建立 日本 原生家庭宽带出口连接，随时可执行挂载算税探测"
+    },
+    {
+      "iso": "ca",
+      "name": "加拿大 (安省)",
+      "currency": "CAD",
+      "state": "ON",
+      "postal": "M5V 2T6",
+      "residentialIp": "38.253.31.172",
+      "city": "Montréal",
+      "isp": "AS22423 Altima Telecom",
+      "status": "PROXY_READY_AWAITING_SESSION",
+      "note": "成功建立 加拿大 (安省) 原生家庭宽带出口连接，随时可执行挂载算税探测"
+    },
+    {
+      "iso": "de",
+      "name": "德国",
+      "currency": "EUR",
+      "postal": "10115",
+      "residentialIp": "94.114.157.191",
+      "city": "Rodgau",
+      "isp": "AS3209 Vodafone GmbH",
+      "status": "PROXY_READY_AWAITING_SESSION",
+      "note": "成功建立 德国 原生家庭宽带出口连接，随时可执行挂载算税探测"
+    },
+    {
+      "iso": "gb",
+      "name": "英国",
+      "currency": "GBP",
+      "postal": "SW1A 1AA",
+      "residentialIp": "86.5.198.255",
+      "city": "Belfast",
+      "isp": "AS5089 Virgin Media Limited",
+      "status": "PROXY_READY_AWAITING_SESSION",
+      "note": "成功建立 英国 原生家庭宽带出口连接，随时可执行挂载算税探测"
+    },
+    {
+      "iso": "in",
+      "name": "印度",
+      "currency": "INR",
+      "postal": "110001",
+      "residentialIp": "116.206.157.183",
+      "city": "Delhi",
+      "isp": "AS134375 Fusionnet Web Services Limited",
+      "status": "PROXY_READY_AWAITING_SESSION",
+      "note": "成功建立 印度 原生家庭宽带出口连接，随时可执行挂载算税探测"
+    },
+    {
+      "iso": "tr",
+      "name": "土耳其",
+      "currency": "TRY",
+      "postal": "34000",
+      "residentialIp": "37.130.75.248",
+      "city": "Istanbul",
+      "isp": "AS34296 Millenicom Telekomunikasyon Hizmetleri Anonim Sirketi",
+      "status": "PROXY_READY_AWAITING_SESSION",
+      "note": "成功建立 土耳其 原生家庭宽带出口连接，随时可执行挂载算税探测"
+    },
+    {
+      "iso": "co",
+      "name": "哥伦比亚",
+      "currency": "COP",
+      "postal": "110111",
+      "residentialIp": "181.61.206.80",
+      "city": "Bogotá",
+      "isp": "AS10620 Telmex Colombia S.A.",
+      "status": "PROXY_READY_AWAITING_SESSION",
+      "note": "成功建立 哥伦比亚 原生家庭宽带出口连接，随时可执行挂载算税探测"
+    },
+    {
+      "iso": "mx",
+      "name": "墨西哥",
+      "currency": "MXN",
+      "postal": "06000",
+      "residentialIp": "201.111.120.236",
+      "city": "Veracruz",
+      "isp": "AS8151 Uninet S.A. de C.V.",
+      "status": "PROXY_READY_AWAITING_SESSION",
+      "note": "成功建立 墨西哥 原生家庭宽带出口连接，随时可执行挂载算税探测"
+    },
+    {
+      "iso": "th",
+      "name": "泰国",
+      "currency": "THB",
+      "postal": "10100",
+      "residentialIp": "58.136.29.182",
+      "city": "Chachoengsao",
+      "isp": "AS133481 AIS Fibre",
+      "status": "PROXY_READY_AWAITING_SESSION",
+      "note": "成功建立 泰国 原生家庭宽带出口连接，随时可执行挂载算税探测"
+    },
+    {
+      "iso": "id",
+      "name": "印尼",
+      "currency": "IDR",
+      "postal": "10110",
+      "status": "PROXY_UNAVAILABLE"
+    },
+    {
+      "iso": "za",
+      "name": "南非",
+      "currency": "ZAR",
+      "postal": "2000",
+      "residentialIp": "102.217.85.218",
+      "city": "Durban",
+      "isp": "AS328961 NET99 (PTY) LTD",
+      "status": "PROXY_READY_AWAITING_SESSION",
+      "note": "成功建立 南非 原生家庭宽带出口连接，随时可执行挂载算税探测"
+    }
+  ]
+}
